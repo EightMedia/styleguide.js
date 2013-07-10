@@ -23,8 +23,7 @@ html
 
               if guide.description
                 .description
-                  :markdown
-                    !{guide.description}
+                  !{markdown(guide.description)}
 
               .preview
                 iframe(scrolling="no")

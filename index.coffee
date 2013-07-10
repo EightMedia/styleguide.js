@@ -3,6 +3,7 @@ path = require 'path'
 slug = require 'slug'
 Yaml = require 'js-yaml'
 Jade = require 'jade'
+Marked = require 'marked'
 CssParse = require 'css-parse'
 
 
@@ -66,6 +67,7 @@ class StyleGuide
       sections: @sections
       source: @source
       title: @title
+      markdown: Marked
     ), encoding:'utf8')
 
 module.exports = StyleGuide
