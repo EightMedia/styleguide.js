@@ -3,7 +3,6 @@ path = require 'path'
 slug = require 'slug'
 Yaml = require 'js-yaml'
 Jade = require 'jade'
-Marked = require 'marked'
 CssParse = require 'css-parse'
 
 

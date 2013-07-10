@@ -30,9 +30,10 @@ for guide in document.querySelectorAll('.guide')
   Guide(guide)
 
 
+all_frames = document.querySelectorAll('.preview iframe')
 scaleIframes = ->
-  for frame in document.querySelectorAll('.preview iframe')
-    frame.height = frame.contentWindow.document.querySelector('html').offsetHeight
+  for frame in all_frames
+    frame.height = frame.contentWindow.document.querySelector('html').scrollHeight
 
 scaleIframes()
-window.addEventListener('resize', scaleIframes)
+setInterval(scaleIframes, 500)

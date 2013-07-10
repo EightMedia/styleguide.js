@@ -6,6 +6,7 @@ html
     include styleguide.less
   body
     .container
+      time.generated Generated at #{Date()}
       h1 #{title}
       nav.nav
         ul
@@ -26,7 +27,7 @@ html
                     !{guide.description}
 
               .preview
-                iframe
+                iframe(scrolling="no")
               .source.hidden= guide.example.trim()
 
       textarea.source_css= source
