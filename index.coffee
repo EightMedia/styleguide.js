@@ -12,7 +12,7 @@ class StyleGuide
     @source = ''
 
   parseFile: (src_file)->
-    @parseCSS(fs.readFileSync path.resolve(__dirname, src_file), encoding:'utf8')
+    @parseCSS(fs.readFileSync src_file, encoding:'utf8')
 
   parseCSS: (@source)->
     cssparser = new CssParse(@source)
@@ -31,18 +31,20 @@ class StyleGuide
           console.log err
 
 
+
     # get all sections
     sections = {}
     guides.forEach (guide)->
-      if not guide.section then guide.section = '[Index]'
+      section = guide.section || 'Index'
 
-      if not sections[guide.section]
-        sections[guide.section] =
-          title: guide.section
-          slug: slug(guide.section)
+      if not sections[section]
+        sections[section] =
+          title: section
+          slug: section.replace(/[^a-z0-9]/ig, "")
           guides: []
 
-      sections[guide.section].guides.push(guide)
+      sections[section].guides.push(guide)
+      return
 
 
     # convert to array
@@ -54,7 +56,7 @@ class StyleGuide
       return (a.title > b.title)
 
 
-  renderToFile: (dest_file, src_template='template/index.jade')->
+  renderToFile: (dest_file, src_template="#{__dirname}/template/index.jade")->
     # jade template
     template = fs.readFileSync src_template, encoding:'utf8'
     fn = Jade.compile template,
