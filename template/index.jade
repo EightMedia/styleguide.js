@@ -1,0 +1,33 @@
+!!!5
+html
+  head
+    title Styleguide
+    include modernizr.js
+    include styleguide.less
+  body
+    .container
+      h1 #{title}
+      nav.nav
+        ul
+          for section in sections
+            li: a(href="##{section.slug}")= section.title
+
+      for section in sections
+        .section(id=section.slug)
+          h2 #{section.title}
+          for guide in section.guides
+            .guide
+              h3= guide.title
+              if guide.description
+                .description
+                  :markdown
+                    !{guide.description}
+
+              .preview
+                iframe
+              .source
+                textarea #{guide.example}
+
+      textarea.source_css #{source}
+
+    include styleguide.coffee
