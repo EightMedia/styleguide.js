@@ -4,6 +4,10 @@ Guide = (guide)->
   preview = guide.querySelector('.preview')
   source = guide.querySelector('.source')
   iframe = guide.querySelector('.preview iframe')
+
+  if not source
+    false
+
   guide_source = source.textContent
 
   # write guide html

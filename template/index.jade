@@ -25,9 +25,10 @@ html
                 .description
                   !{markdown(guide.description)}
 
-              .preview
-                iframe(scrolling="no")
-              .source.hidden= guide.example.trim()
+              if guide.example
+                .preview
+                  iframe(scrolling="no")
+                .source.hidden= guide.example.trim()
 
       textarea.source_css= source
 
