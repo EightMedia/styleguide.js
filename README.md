@@ -73,7 +73,7 @@ Render the styleguide to this file, with the given jade template.
 ### Grunt task
 A simple Grunt task, written in coffeescript.
 
-````
+````coffee
 # generate styleguide
 grunt.task.registerTask 'gen_styleguide', 'Generate nice styleguide', ->
   styleguide = require 'styleguide'
