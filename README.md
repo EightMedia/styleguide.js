@@ -1,7 +1,8 @@
 styleguide.js
 =============
 
-Generate a styleguide from your CSS, by adding [YAML](http://en.wikipedia.org/wiki/YAML) data in the comments.
+Generate a styleguide from your CSS, by adding [YAML](http://en.wikipedia.org/wiki/YAML) data in the comments. 
+It generates a [self-contained html](test/index.html) file. Works great for component based CSS.
 
 
 ### How to use
@@ -84,5 +85,5 @@ grunt.task.registerTask 'styleguide', 'Generate nice styleguide', ->
 ````
 
 
-### Screenshot
+### Screenshot ([source](test/index.html))
 ![Screenshot](screenshot.png)
