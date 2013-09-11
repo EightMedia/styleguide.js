@@ -1,4 +1,5 @@
 source_css = document.querySelector('textarea.source_css').textContent
+source_js = document.querySelector('textarea.source_js').textContent
 
 Guide = (guide)->
   preview = guide.querySelector('.preview')
@@ -19,6 +20,11 @@ Guide = (guide)->
   stylesheet = d.createElement('style')
   stylesheet.innerHTML = source_css
   d.querySelector('head').appendChild(stylesheet)
+  
+  # append js
+  script = d.createElement('script')
+  script.innerHTML = source_js
+  d.querySelector('head').appendChild(script)
 
   d.close()
 

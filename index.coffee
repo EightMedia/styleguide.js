@@ -11,9 +11,12 @@ class StyleGuide
   constructor: (@title)->
     @sections = []
     @source = ''
+    @js = ''
 
+    
   parseFile: (src_file)->
     @parseCSS(fs.readFileSync src_file, encoding:'utf8')
+    
 
   parseCSS: (@source)->
     cssparser = new CssParse(@source)
@@ -57,6 +60,10 @@ class StyleGuide
       return (a.title > b.title)
 
 
+  includeJS: (file)->
+    @js = fs.readFileSync file, encoding:'utf8'
+      
+      
   renderToFile: (dest_file, src_template="#{__dirname}/template/index.jade")->
     # jade template
     template = fs.readFileSync src_template, encoding:'utf8'
@@ -65,7 +72,8 @@ class StyleGuide
 
     fs.writeFileSync(dest_file, fn(
       sections: @sections
-      source: @source
+      source_css: @source
+      source_js: @js
       title: @title
       markdown: Marked
     ), encoding:'utf8')
