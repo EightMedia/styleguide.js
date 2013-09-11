@@ -1,7 +1,7 @@
 styleguide.js
 =============
 
-Generate a styleguide from your CSS, by adding [YAML](http://en.wikipedia.org/wiki/YAML) data in css comments.
+Generate a styleguide from your CSS, by adding [YAML](http://en.wikipedia.org/wiki/YAML) data in the comments.
 
 
 ### How to use
