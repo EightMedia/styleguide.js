@@ -75,7 +75,7 @@ A simple Grunt task, written in coffeescript.
 
 ````coffee
 # generate styleguide
-grunt.task.registerTask 'gen_styleguide', 'Generate nice styleguide', ->
+grunt.task.registerTask 'styleguide', 'Generate nice styleguide', ->
   styleguide = require 'styleguide'
 
   s = new styleguide('My Styleguide')
