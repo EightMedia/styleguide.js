@@ -1,7 +1,7 @@
 styleguide.js
 =============
 
-Generate a styleguide from your CSS, by adding (YAML)[http://en.wikipedia.org/wiki/YAML] data in css comments.
+Generate a styleguide from your CSS, by adding [YAML](http://en.wikipedia.org/wiki/YAML) data in css comments.
 
 
 ### How to use
@@ -56,16 +56,15 @@ and parse them in your custom template.
 
 
 ### API
-`parseFile( css_file )`
-Read the given css file and parse all styleguide comments. The file is also used in the export.
-Can only be called once.
+`parseFile( css_file )` and `parseCSS( css_source )`
 
-`parseCSS( css_source )`
-Read the given css source and parse all styleguide comments. The file is also used in the export.
-Can only be called once.
+Read the given css file/source and parse all styleguide comments. The file is also used in the export.
+Can only be called once per instance.
 
 `includeJS( js_file )`
+
 Adds this file to the export. You can use this to load scripts like Modernizr into the page.
 
 `renderToFile( dest_file, [template='template/index.jade'] )`
+
 Render the styleguide to this file, with the given jade template.
