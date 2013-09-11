@@ -82,3 +82,7 @@ grunt.task.registerTask 'styleguide', 'Generate nice styleguide', ->
   s.includeJS "styleguide/all.js"
   s.renderToFile "styleguide/index.html"
 ````
+
+
+### Screenshot
+![Screenshot](screenshot.png)
