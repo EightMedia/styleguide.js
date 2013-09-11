@@ -1,14 +1,14 @@
 {
   "name": "styleguide",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "generate styleguide from your css",
   "main": "index.coffee",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "coffee test/test.coffee"
   },
   "repository": "",
   "author": "J. Tangelder",
-  "license": "BSD",
+  "license": "MIT",
 
   "dependencies": {
     "marked": "*",
