@@ -20,7 +20,7 @@ body {
   description: This is a longer description.
   example: |
     <div class="test">This is a test</div>
-    <div class="test">This is another test</div>
+    <div class="test2">This is another test</div>
 ***/
 .test,
 .test2,
