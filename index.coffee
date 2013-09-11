@@ -11,7 +11,7 @@ class StyleGuide
   constructor: (@title)->
     @sections = []
     @source = ''
-    @js = ''
+    @js = []
 
     
   parseFile: (src_file)->
@@ -61,7 +61,7 @@ class StyleGuide
 
 
   includeJS: (file)->
-    @js = fs.readFileSync file, encoding:'utf8'
+    @js.push(fs.readFileSync file, encoding:'utf8')
       
       
   renderToFile: (dest_file, src_template="#{__dirname}/template/index.jade")->
@@ -73,7 +73,7 @@ class StyleGuide
     fs.writeFileSync(dest_file, fn(
       sections: @sections
       source_css: @source
-      source_js: @js
+      source_js: @js.join(";")
       title: @title
       markdown: Marked
     ), encoding:'utf8')
