@@ -68,3 +68,18 @@ Adds this file to the export. You can use this to load scripts like Modernizr in
 `renderToFile( dest_file, [template='template/index.jade'] )`
 
 Render the styleguide to this file, with the given jade template.
+
+
+### Grunt task
+A simple Grunt task, written in coffeescript.
+
+````
+# generate styleguide
+grunt.task.registerTask 'gen_styleguide', 'Generate nice styleguide', ->
+  styleguide = require 'styleguide'
+
+  s = new styleguide('My Styleguide')
+  s.parseFile "styleguide/all.css"
+  s.includeJS "styleguide/all.js"
+  s.renderToFile "styleguide/index.html"
+````
