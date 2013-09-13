@@ -47,8 +47,7 @@ input.test {
 
 
 ````js
-var StyleGuide = require('../index');
-
+var StyleGuide = require('styleguidejs');
 sg = new StyleGuide('My Styleguide');
 sg.parseFile("mystyle.css");
 sg.includeJS("modernizr.js");
@@ -89,9 +88,7 @@ A simple Grunt task, written in coffeescript.
 
 ````coffee
 grunt.task.registerTask 'styleguide', 'Generate nice styleguide', ->
-  styleguide = require 'styleguide'
-
-  s = new styleguide('My Styleguide')
+  s = new (require 'styleguidejs')('My Styleguide')
   s.parseFile "styleguide/all.css"
   s.includeJS "styleguide/all.js"
   s.renderToFile "styleguide/index.html"
