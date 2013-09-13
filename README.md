@@ -18,7 +18,7 @@ body {
 /***
   title: Test
   section: Forms
-  description: This is a longer description.
+  description: This is a description, and can also contain **Markdown**
   example: |
     <div class="test">This is a test</div>
     <div class="test2">This is another test</div>
