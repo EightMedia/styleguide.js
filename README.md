@@ -5,6 +5,10 @@ Generate a styleguide from your CSS, by adding [YAML](http://en.wikipedia.org/wi
 It generates a [self-contained html](test/index.html) file. Works great for component based CSS.
 
 
+### Install
+Just run `npm install styleguidejs`.
+
+
 ### How to use
 You can add comments to your css. When it has three asterisks, it will be parsed as YAML data.
 The properties `title`, `section` and `example` are required by the default template, 
