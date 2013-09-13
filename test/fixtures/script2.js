@@ -1,0 +1,1 @@
+console.log('im inside script2.js')

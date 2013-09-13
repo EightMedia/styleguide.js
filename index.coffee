@@ -1,7 +1,10 @@
 fs = require 'fs'
+util = require 'util'
+
 cons = require 'consolidate'
 yaml = require 'js-yaml'
 cssparse = require 'css-parse'
+
 
 class StyleGuide
   constructor: (@title, @engine='jade')->
@@ -58,8 +61,12 @@ class StyleGuide
     return results
     
 
-  includeJS: (file)->
-    @js.push(fs.readFileSync file, encoding:'utf8')
+  includeJS: (files)->
+    if not util.isArray files
+      files = [files]
+      
+    for file in files
+      @js.push fs.readFileSync(file, encoding:'utf8')
       
       
   renderToFile: (dest_file, src_template="#{__dirname}/template/index.jade")->

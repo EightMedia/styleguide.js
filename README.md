@@ -73,7 +73,7 @@ Can only be called once per instance.
 
 `includeJS( js_file )`
 
-Adds this file to the export. You can use this to load scripts like Modernizr and jQuery into the page.
+Adds this file to the export. You can use this to load scripts like Modernizr and jQuery into the page. Also accepts an array of files.
 
 `collectYaml( source )`
 
