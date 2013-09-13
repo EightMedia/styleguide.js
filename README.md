@@ -61,6 +61,11 @@ and parse them in your custom template.
 
 
 ### API
+`constructor( title, engine='jade' )`
+
+Create instance, and set the title for your guide. By default the Jade template engine is used to generate the output. 
+See the docs of [Consolidate.js](https://github.com/visionmedia/consolidate.js) for available options.
+
 `parseFile( css_file )` and `parseCSS( css_source )`
 
 Read the given css file/source and parse all styleguide comments. The file is also used in the export.
@@ -74,11 +79,9 @@ Adds this file to the export. You can use this to load scripts like Modernizr in
 
 Collect the Yaml data comments in the given source. Is used internally, but can be used for your own magic.
 
-`renderToFile( dest_file, [template='template/index.jade'] )`
+`renderToFile( dest_file, template='template/index.jade' )`
 
-Render the styleguide to this file, with the given template. By default the Jade template engine is used. 
-You can change this by settings the `engine` property of the instance. 
-See the docs of [Consolidate.js](https://github.com/visionmedia/consolidate.js) for available options.
+Render the styleguide to this file, with the given template. 
 
 
 ### Grunt task
