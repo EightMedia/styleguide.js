@@ -1,14 +1,10 @@
 fs = require 'fs'
-path = require 'path'
-slug = require 'slug'
-Yaml = require 'js-yaml'
-Jade = require 'jade'
-Marked = require 'marked'
-CssParse = require 'css-parse'
-
+cons = require 'consolidate'
+yaml = require 'js-yaml'
+cssparse = require 'css-parse'
 
 class StyleGuide
-  constructor: (@title)->
+  constructor: (@title, @engine='jade')->
     @sections = []
     @source = ''
     @js = []
@@ -19,22 +15,7 @@ class StyleGuide
     
 
   parseCSS: (@source)->
-    cssparser = new CssParse(@source)
-
-    # find special block comments,
-    # /*** YAML ***/
-    guides = []
-    for rule in cssparser.stylesheet.rules
-      if rule.comment and rule.comment.match(/^\*\*/) and rule.comment.match(/\*\*$/)
-        content = rule.comment.substr(2).slice(0,-2)
-
-        try
-          props = Yaml.safeLoad(content, schema: Yaml.FAILSAFE_SCHEMA)
-          guides.push props
-        catch err
-          console.log err
-
-
+    guides = @collectYaml(@source)
 
     # get all sections
     sections = {}
@@ -59,23 +40,39 @@ class StyleGuide
     @sections.sort (a,b)->
       return (a.title > b.title)
 
+      
+  collectYaml: (source)->
+    css = new cssparse(source)
+    regex = /^\*\*[\s\S]*\*\*$/
+
+    # find special block comments,
+    # /*** YAML ***/
+    results = []
+    for rule in css.stylesheet.rules
+      if rule.comment and rule.comment.match(regex)
+        content = rule.comment.substr(2).slice(0,-2)
+
+        try
+          results.push yaml.safeLoad(content, schema: yaml.FAILSAFE_SCHEMA)
+        catch err then throw err    
+    return results
+    
 
   includeJS: (file)->
     @js.push(fs.readFileSync file, encoding:'utf8')
       
       
   renderToFile: (dest_file, src_template="#{__dirname}/template/index.jade")->
-    # jade template
-    template = fs.readFileSync src_template, encoding:'utf8'
-    fn = Jade.compile template,
-      filename: src_template
-
-    fs.writeFileSync(dest_file, fn(
+    data = 
+      title: @title
       sections: @sections
       source_css: @source
       source_js: @js.join(";")
-      title: @title
-      markdown: Marked
-    ), encoding:'utf8')
+      marked: require 'marked'
+      
+    cons[@engine] src_template, data, (err, html)->
+      if err then throw err
+      fs.writeFileSync(dest_file, html, encoding:'utf8')
+    
 
 module.exports = StyleGuide

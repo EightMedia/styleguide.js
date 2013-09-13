@@ -66,9 +66,15 @@ Can only be called once per instance.
 
 Adds this file to the export. You can use this to load scripts like Modernizr into the page.
 
+`collectYaml( source )`
+
+Collect the Yaml data comments in the given source. Is used internally, but can be used for your own magic.
+
 `renderToFile( dest_file, [template='template/index.jade'] )`
 
-Render the styleguide to this file, with the given jade template.
+Render the styleguide to this file, with the given template. By default the Jade template engine is used. 
+You can change this by settings the `engine` property of the instance. 
+See the docs of [Consolidate.js](https://github.com/visionmedia/consolidate.js) for available options.
 
 
 ### Grunt task
