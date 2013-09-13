@@ -30,10 +30,10 @@ input.test {
 /***
   title: Labels
   section: Forms - Common
-  description:
+  description: |
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ac diam
     interdum augue blandit eleifend. Donec egestas, augue nec malesuada ullamcorper,
-     sapien urna sollicitudin tellus, vel mattis ligula leo id mi. In sodales ante
+     sapien urna sollicitudin tellus, vel **mattis ligula** leo id mi. In sodales ante
      sollicitudin, varius metus id, varius nunc. Aenean rhoncus nisl a quam eleifend,
      vitae volutpat erat vulputate. Nullam scelerisque elit sit amet massa egestas,
       eu adipiscing lorem porttitor.
