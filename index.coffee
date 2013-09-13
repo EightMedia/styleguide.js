@@ -7,7 +7,7 @@ cssparse = require 'css-parse'
 
 
 class StyleGuide
-  constructor: (@title, @engine='jade')->
+  constructor: (@title='', @engine='jade')->
     @sections = []
     @source = ''
     @js = []

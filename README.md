@@ -61,7 +61,7 @@ and parse them in your custom template.
 
 
 ### API
-`constructor( title, engine='jade' )`
+`constructor( title='', engine='jade' )`
 
 Create instance, and set the title for your guide. By default the [Jade](http://jade-lang.com/) template engine is used to generate the output. 
 See the docs of [Consolidate.js](https://github.com/visionmedia/consolidate.js) for available options.
