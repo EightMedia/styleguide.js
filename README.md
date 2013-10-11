@@ -6,7 +6,7 @@ It generates a [self-contained html](test/index.html) file. Works great for comp
 
 
 ### Install
-Just run `npm install styleguidejs`.
+Styleguide.js runs on node, and is written in coffeescript. Just run `npm install styleguidejs`.
 
 
 ### How to use
