@@ -84,7 +84,7 @@ Render the styleguide to this file, with the given template.
 
 
 ### Grunt task
-See [grunt-styleguidejs](grunt-styleguidejs) for using styleguide.js inside your gruntfile.
+See [grunt-styleguidejs](https://github.com/EightMedia/grunt-styleguidejs) for using styleguide.js inside your gruntfile.
 
 
 ### Screenshot ([source](test/index.html))
