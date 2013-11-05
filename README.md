@@ -84,17 +84,7 @@ Render the styleguide to this file, with the given template.
 
 
 ### Grunt task
-A simple [Grunt](http://www.gruntjs.com) task to automate the generation.
-
-````coffee
-var styleguide = require('styleguidejs');
-grunt.task.registerTask('styleguide', 'Generate nice styleguide', function(){
-  var s = new styleguide('My Styleguide');
-  s.parseFile("styleguide/all.css");
-  s.includeJS("styleguide/all.js");
-  s.renderToFile("styleguide/index.html");
-});
-````
+See [grunt-styleguidejs](grunt-styleguidejs) for using styleguide.js inside your gruntfile.
 
 
 ### Screenshot ([source](test/index.html))
