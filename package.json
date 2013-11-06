@@ -9,14 +9,19 @@
   "repository": "",
   "author": "J. Tangelder",
   "license": "MIT",
-
-  "dependencies": {    
+  "dependencies": {
     "consolidate": "*",
     "coffee-script": "*",
     "js-yaml": "*",
     "css-parse": "*",
-    
     "marked": "*",
-    "jade": "*"
+    "jade": "*",
+    "mkdirp": "~0.3.5"
+  },
+  "devDependencies": {
+    "grunt-contrib-clean": "~0.4.0",
+    "grunt-contrib-nodeunit": "~0.2.0",
+    "grunt": "~0.4.1",
+    "cheerio": "~0.12.3",
   }
 }
