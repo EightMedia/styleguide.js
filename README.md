@@ -97,6 +97,7 @@ sg = new StyleGuide('My Styleguide');
 sg.parseFile("mystyle.css");
 sg.includeJS("modernizr.js");
 sg.includeJS("jquery.js");
+sg.customCSS("custom.css");
 sg.renderToFile("test/index.html");
 ````
 
