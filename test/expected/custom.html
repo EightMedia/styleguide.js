@@ -1,0 +1,146 @@
+<!DOCTYPE html><html><head><title>Styleguide Demo</title><style>body {
+  background: red;
+}
+</style></head><body><div class="container"><time class="generated">Generated at Wed Nov 06 2013 16:07:03 GMT+0100 (CET)</time><h1>Styleguide Demo</h1><nav class="nav"><ul><li><a href="#FormsCommon">Forms - Common</a></li><li><a href="#Misc">Misc</a></li></ul></nav><div id="FormsCommon" class="section"><h2>Forms - Common</h2><div class="guide"><h3>Another test<a href="#" class="toggle">Toggle source</a></h3><div class="preview"><iframe scrolling="no"></iframe></div><div class="source hidden">&lt;input type=&quot;text&quot; class=&quot;test&quot;&gt;</div></div><div class="guide"><h3>Labels<a href="#" class="toggle">Toggle source</a></h3><div class="description"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ac diam
+interdum augue blandit eleifend. Donec egestas, augue nec malesuada ullamcorper,
+ sapien urna sollicitudin tellus, vel <strong>mattis ligula</strong> leo id mi. In sodales ante
+ sollicitudin, varius metus id, varius nunc. Aenean rhoncus nisl a quam eleifend,
+ vitae volutpat erat vulputate. Nullam scelerisque elit sit amet massa egestas,
+  eu adipiscing lorem porttitor.</p>
+</div><div class="preview"><iframe scrolling="no"></iframe></div><div class="source hidden">&lt;label class=&quot;test&quot;&gt;This is a test&lt;/label&gt;</div></div></div><div id="Misc" class="section"><h2>Misc</h2><div class="guide"><h3>Test<a href="#" class="toggle">Toggle source</a></h3><div class="preview"><iframe scrolling="no"></iframe></div><div class="source hidden">&lt;div class=&quot;test&quot;&gt;This is a test&lt;/div&gt; &lt;div class=&quot;test&quot;&gt;This is another test&lt;/div&gt;</div></div><div class="guide"><h3>Lists<a href="#" class="toggle">Toggle source</a></h3><div class="description"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ac diam
+interdum augue blandit eleifend. Donec egestas, augue nec malesuada ullamcorper,
+ sapien urna sollicitudin tellus, vel <strong>mattis ligula</strong> leo id mi. In sodales ante
+ sollicitudin, varius metus id, varius nunc. Aenean rhoncus nisl a quam eleifend,
+ vitae volutpat erat vulputate. Nullam scelerisque elit sit amet massa egestas,
+  eu adipiscing lorem porttitor.</p>
+</div><div class="preview"><iframe scrolling="no"></iframe></div><div class="source hidden">&lt;ul class=&quot;list&quot;&gt; &lt;li class=&quot;list-item&quot;&gt;listitem&lt;/li&gt; &lt;li class=&quot;list-item&quot;&gt;listitem&lt;/li&gt; &lt;li class=&quot;list-item&quot;&gt;listitem&lt;/li&gt; &lt;li class=&quot;list-item&quot;&gt;listitem&lt;/li&gt; &lt;li class=&quot;list-item&quot;&gt;listitem&lt;/li&gt; &lt;li class=&quot;list-item&quot;&gt;listitem&lt;/li&gt; &lt;/ul&gt;</div></div></div><textarea class="source_css">body {
+  font: 18px Verdana;
+}
+
+/***
+  title: Test
+  section: Misc
+  example:
+    &lt;div class=&quot;test&quot;&gt;This is a test&lt;/div&gt;
+    &lt;div class=&quot;test&quot;&gt;This is another test&lt;/div&gt;
+***/
+.test,
+.test2,
+.test2[fancy=true] {
+  background: blue;
+  color: #fff;
+}
+
+
+/***
+  title: Another test
+  section: Forms - Common
+  example: &lt;input type=&quot;text&quot; class=&quot;test&quot;&gt;
+***/
+input.test {
+  background: green;
+}
+
+
+/***
+  title: Labels
+  section: Forms - Common
+  description: |
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ac diam
+    interdum augue blandit eleifend. Donec egestas, augue nec malesuada ullamcorper,
+     sapien urna sollicitudin tellus, vel **mattis ligula** leo id mi. In sodales ante
+     sollicitudin, varius metus id, varius nunc. Aenean rhoncus nisl a quam eleifend,
+     vitae volutpat erat vulputate. Nullam scelerisque elit sit amet massa egestas,
+      eu adipiscing lorem porttitor.
+  example:
+    &lt;label class=&quot;test&quot;&gt;This is a test&lt;/label&gt;
+***/
+label.test {
+  background: yellow;
+}
+
+
+
+/***
+  title: Lists
+  section: Misc
+  description: |
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ac diam
+    interdum augue blandit eleifend. Donec egestas, augue nec malesuada ullamcorper,
+     sapien urna sollicitudin tellus, vel **mattis ligula** leo id mi. In sodales ante
+     sollicitudin, varius metus id, varius nunc. Aenean rhoncus nisl a quam eleifend,
+     vitae volutpat erat vulputate. Nullam scelerisque elit sit amet massa egestas,
+      eu adipiscing lorem porttitor.
+  example:
+    - &lt;ul class=&quot;list&quot;&gt;
+    - &amp;li &lt;li class=&quot;list-item&quot;&gt;listitem&lt;/li&gt;
+    - *li
+    - *li
+    - *li
+    - *li
+    - *li
+    - &lt;/ul&gt;
+***/
+.list{
+  border: 1px solid red;
+}
+.list-item {
+  color: red;
+}</textarea><textarea class="source_js">console.log('im inside script.js')</textarea></div><script type="text/javascript">
+(function() {
+  var Guide, all_frames, guide, scaleIframes, source_css, source_js, _i, _len, _ref;
+
+  source_css = document.querySelector('textarea.source_css').textContent;
+
+  source_js = document.querySelector('textarea.source_js').textContent;
+
+  Guide = function(guide) {
+    var d, guide_source, iframe, preview, script, source, stylesheet;
+    preview = guide.querySelector('.preview');
+    source = guide.querySelector('.source');
+    iframe = guide.querySelector('.preview iframe');
+    if (!source) {
+      false;
+    }
+    guide_source = source.textContent;
+    d = iframe.contentWindow.document;
+    d.open();
+    d.write("<!DOCTYPE html><html><head></head><body style='padding: 20px'>" + guide_source + "</body></html>");
+    stylesheet = d.createElement('style');
+    stylesheet.innerHTML = source_css;
+    d.querySelector('head').appendChild(stylesheet);
+    script = d.createElement('script');
+    script.innerHTML = source_js;
+    d.querySelector('head').appendChild(script);
+    d.close();
+    return guide.querySelector("a.toggle").addEventListener("click", function(ev) {
+      preview.classList.toggle('hidden');
+      source.classList.toggle('hidden');
+      return ev.preventDefault();
+    });
+  };
+
+  _ref = document.querySelectorAll('.guide');
+  for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+    guide = _ref[_i];
+    Guide(guide);
+  }
+
+  all_frames = document.querySelectorAll('.preview iframe');
+
+  scaleIframes = function() {
+    var frame, _j, _len1, _results;
+    _results = [];
+    for (_j = 0, _len1 = all_frames.length; _j < _len1; _j++) {
+      frame = all_frames[_j];
+      _results.push(frame.height = frame.contentWindow.document.querySelector('html').scrollHeight);
+    }
+    return _results;
+  };
+
+  scaleIframes();
+
+  setInterval(scaleIframes, 500);
+
+}).call(this);
+</script></body></html>

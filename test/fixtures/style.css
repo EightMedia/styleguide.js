@@ -4,7 +4,7 @@ body {
 
 /***
   title: Test
-  section: Forms
+  section: Misc
   example:
     <div class="test">This is a test</div>
     <div class="test">This is another test</div>
@@ -42,4 +42,33 @@ input.test {
 ***/
 label.test {
   background: yellow;
+}
+
+
+
+/***
+  title: Lists
+  section: Misc
+  description: |
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ac diam
+    interdum augue blandit eleifend. Donec egestas, augue nec malesuada ullamcorper,
+     sapien urna sollicitudin tellus, vel **mattis ligula** leo id mi. In sodales ante
+     sollicitudin, varius metus id, varius nunc. Aenean rhoncus nisl a quam eleifend,
+     vitae volutpat erat vulputate. Nullam scelerisque elit sit amet massa egestas,
+      eu adipiscing lorem porttitor.
+  example:
+    - <ul class="list">
+    - &li <li class="list-item">listitem</li>
+    - *li
+    - *li
+    - *li
+    - *li
+    - *li
+    - </ul>
+***/
+.list{
+  border: 1px solid red;
+}
+.list-item {
+  color: red;
 }

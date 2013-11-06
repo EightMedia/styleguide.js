@@ -4,6 +4,8 @@ util = require 'util'
 cons = require 'consolidate'
 yaml = require 'js-yaml'
 cssparse = require 'css-parse'
+mkdirp = require 'mkdirp'
+path = require 'path'
 
 
 class StyleGuide
@@ -11,6 +13,7 @@ class StyleGuide
     @sections = []
     @source = ''
     @js = []
+    @styleguide_css = "#{__dirname}/template/styleguide.css"
 
     
   parseFile: (src_file)->
@@ -67,6 +70,10 @@ class StyleGuide
       
     for file in files
       @js.push fs.readFileSync(file, encoding:'utf8')
+
+
+  customCSS: (filepath) ->
+    @styleguide_css = filepath
       
       
   renderToFile: (dest_file, src_template="#{__dirname}/template/index.jade")->
@@ -76,9 +83,16 @@ class StyleGuide
       source_css: @source
       source_js: @js.join(";")
       marked: require 'marked'
+      styleguide_css: fs.readFileSync(@styleguide_css)
       
     cons[@engine] src_template, data, (err, html)->
       if err then throw err
+
+      # check if path exists
+      dir = path.dirname(dest_file)
+      if not fs.exists(dir)
+        mkdirp.sync(dir)
+
       fs.writeFileSync(dest_file, html, encoding:'utf8')
     
 
