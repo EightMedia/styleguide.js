@@ -127,6 +127,9 @@ Collect the Yaml data comments in the given source. Is used internally, but can 
 
 Render the styleguide to this file, with the given template. 
 
+`sg.customCSS( css_file )`
+Use your own stylesheet for the styleguide page.
+
 
 ### Grunt task
 See [grunt-styleguidejs](https://github.com/EightMedia/grunt-styleguidejs) for using styleguide.js inside your gruntfile.
