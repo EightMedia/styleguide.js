@@ -11,8 +11,7 @@ Styleguide.js runs on node, and is written in coffeescript. Just run `npm instal
 
 ### How to use
 You can add comments to your css. When it has three asterisks, it will be parsed as YAML data.
-The properties `title`, `section` and `example` are required by the default template, 
-but when using your own you can add all the things you would like. (like browser support, media query etc...)
+The properties `title`, `section` and `example` are required by the default template, but when using your own you can add all the things you would like. (like browser support, media query etc...). Example can be a string or an array.
 
 ````css
 body {
@@ -21,11 +20,10 @@ body {
 
 /***
   title: Test
-  section: Forms
-  description: This is a description, and can also contain **Markdown**
-  example: |
+  section: Misc
+  example:
     <div class="test">This is a test</div>
-    <div class="test2">This is another test</div>
+    <div class="test">This is another test</div>
 ***/
 .test,
 .test2,
@@ -42,6 +40,53 @@ body {
 ***/
 input.test {
   background: green;
+}
+
+
+/***
+  title: Labels
+  section: Forms - Common
+  description: |
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ac diam
+    interdum augue blandit eleifend. Donec egestas, augue nec malesuada ullamcorper,
+     sapien urna sollicitudin tellus, vel **mattis ligula** leo id mi. In sodales ante
+     sollicitudin, varius metus id, varius nunc. Aenean rhoncus nisl a quam eleifend,
+     vitae volutpat erat vulputate. Nullam scelerisque elit sit amet massa egestas,
+      eu adipiscing lorem porttitor.
+  example:
+    <label class="test">This is a test</label>
+***/
+label.test {
+  background: yellow;
+}
+
+
+
+/***
+  title: Lists
+  section: Misc
+  description: |
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ac diam
+    interdum augue blandit eleifend. Donec egestas, augue nec malesuada ullamcorper,
+     sapien urna sollicitudin tellus, vel **mattis ligula** leo id mi. In sodales ante
+     sollicitudin, varius metus id, varius nunc. Aenean rhoncus nisl a quam eleifend,
+     vitae volutpat erat vulputate. Nullam scelerisque elit sit amet massa egestas,
+      eu adipiscing lorem porttitor.
+  example:
+    - <ul class="list">
+    - &li <li class="list-item">listitem</li>
+    - *li
+    - *li
+    - *li
+    - *li
+    - *li
+    - </ul>
+***/
+.list{
+  border: 1px solid red;
+}
+.list-item {
+  color: red;
 }
 ````
 
