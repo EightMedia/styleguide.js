@@ -1,8 +1,12 @@
-<!DOCTYPE html><html><head><title>Styleguide Demo</title><style>body {
-  background: #fcfcfc;
+<!DOCTYPE html><html><head><title>Styleguide Demo</title><style>@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,600,700);
+
+
+body {
+  background: #fbfbfb;
   font-size: 15px;
   line-height: 22px;
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: 'Open Sans', sans-serif;
+  color: #222;
 }
 
 code {
@@ -13,13 +17,13 @@ code {
   border: 1px solid #e1e1e8;
   font-size: 12px;
   border-radius: 2px;
-  font-family: Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace;
+  font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
 }
 
 .generated {
-  float: right;
   font-size: 11px;
   color: #999;
+  margin-bottom: 2em;
 }
 
 .container {
@@ -28,6 +32,68 @@ code {
   padding: 20px 20px 20px 70px;
 }
 
+
+/* headings */
+h1, h2, h3, h4, h5{
+    font-size: 1em;
+    line-height: 1;
+    font-weight: normal;
+    margin: 0 0 .5em 0;
+}
+.title-large{
+  font-size: 2.5em;
+  font-weight: 700;
+  margin: 0 0 .2em 0;
+}
+.title-medium{
+  font-size: 1.4em;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.title-small{
+  font-size: 1.1em;
+  font-weight: 600;
+}
+
+
+/* divider */
+hr{
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #c9c9c9;
+  margin: 0;
+  padding: 0;
+  clear: both;
+}
+hr.small{
+  margin: 2em 0;
+  width: 50px;
+}
+
+
+/* index */
+.index{}
+
+  .index ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+    .index a{
+      color: darkslateblue;
+      text-decoration: none;
+    }
+    .index a:hover{
+      text-decoration: underline;
+    }
+
+    .index ul ul{
+      margin-left: 1em;
+    }
+
+
+/* navigation */
 .nav {
   position: fixed;
   left: 0;
@@ -36,8 +102,8 @@ code {
   width: 50px;
   overflow-y: auto;
   overflow-x: hidden;
-  background: #333;
-  color: #fff;
+  background: #222;
+  border-right: 1px solid #c9c9c9;
   z-index: 100;
   -webkit-transition: width .3s;
   -moz-transition: width .3s;
@@ -48,184 +114,252 @@ code {
   width: 350px;
 }
 
-.nav ul {
-  padding: 0;
-  list-style: none;
-  margin: 15px 0;
-  opacity: .3;
-}
+  .nav ul {
+    padding: 0;
+    list-style: none;
+    margin: 15px 0;
+    opacity: .3;
+  }
 
-.nav:hover ul {
-  opacity: 1;
-}
+  .nav:hover ul {
+    opacity: 1;
+  }
 
-.nav a {
-  padding: 5px 20px;
-  color: #aaa;
-  text-decoration: none;
-  display: block;
-  white-space: nowrap;
-}
+  .nav a {
+    padding: 5px 20px;
+    color: #fefefe;
+    text-decoration: none;
+    display: block;
+    white-space: nowrap;
+  }
 
-.nav a:hover {
-  color: #eee;
-  text-decoration: underline;
-}
+  .nav a:hover {
+    text-decoration: underline;
+  }
 
+
+
+/* section */
 .section {
-  margin: 30px 0;
+  margin-top: 75px;
 }
+  .section > hr{
+    margin-top: 75px;
+  }
 
-.section:after {
-  content: &quot;&quot;;
-  display: block;
-  width: 50px;
-  height: 0;
-  border-top: solid 3px #ddd;
-}
 
+  .section:last-of-type{
+    border: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+
+
+/* guide */
 .guide {
   margin: 30px 0;
 }
 
-.guide h3 {
-  margin: 0 0 8px 0;
-}
+  .guide h3:before{
+    margin-right: .3em;
+    display: inline-block;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    border-radius: 50%;
+  }
 
-.guide h3 a.toggle {
-  float: right;
-  font-size: 10px;
-  color: #ccc;
-  font-weight: normal;
-  text-decoration: none;
-  text-transform: uppercase;
-}
+    .guide h3 a.toggle {
+      float: right;
+      font-size: 10px;
+      color: #ccc;
+      font-weight: normal;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
 
-.guide .description ol,
-.guide .description ul {
-  margin-top: 0;
-  margin-bottom: 10px;
-}
+  .guide .description{
+    max-width: 650px;
+  }
 
-.guide .description p {
-  margin: 0 0 10px 0;
-}
+    .guide .description ol,
+    .guide .description ul {
+      margin-top: 0;
+      margin-bottom: 10px;
+    }
 
-.guide .hidden { display: none; }
+    .guide .description p {
+      margin: 0 0 10px 0;
+    }
 
-.guide .preview iframe {
-  width: 100%;
-  border: none;
-  margin: 0;
-  background: #fff;
-  border-radius: 5px;
-  border: solid 1px rgba(0, 0, 0, .1);
-}
+  .guide .hidden { display: none; }
 
-.guide .source {
-  min-height: 60px;
-  font-size: 12px;
-  line-height: 17px;
-  font-family: Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace;
-  color: green;
-  background-color: #f7f7f9;
-  border: 1px solid #e1e1e8;
-  border-radius: 5px;
-  padding: 20px;
-  white-space: pre;
-  overflow: auto;
-}
+  .guide .preview iframe {
+    width: 100%;
+    border: none;
+    margin: 0;
+    background: #fff;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.15);
+    box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.15);
+    border: solid 1px #c9c9c9;
+  }
 
+  .guide .source {
+    min-height: 60px;
+    font-size: 12px;
+    line-height: 17px;
+    font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+    color: green;
+    background-color: #f7f7f9;
+    border: 1px solid #e1e1e8;
+    border-radius: 5px;
+    padding: 20px;
+    white-space: pre;
+    overflow: auto;
+  }
+
+
+
+/* misc */
 .source_js,
 .source_css {
   display: none;
 }
-</style></head><body><div class="container"><time class="generated">Generated at Wed Nov 06 2013 16:07:03 GMT+0100 (CET)</time><h1>Styleguide Demo</h1><nav class="nav"><ul><li><a href="#FormsCommon">Forms - Common</a></li><li><a href="#Misc">Misc</a></li></ul></nav><div id="FormsCommon" class="section"><h2>Forms - Common</h2><div class="guide"><h3>Another test<a href="#" class="toggle">Toggle source</a></h3><div class="preview"><iframe scrolling="no"></iframe></div><div class="source hidden">&lt;input type=&quot;text&quot; class=&quot;test&quot;&gt;</div></div><div class="guide"><h3>Labels<a href="#" class="toggle">Toggle source</a></h3><div class="description"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ac diam
-interdum augue blandit eleifend. Donec egestas, augue nec malesuada ullamcorper,
- sapien urna sollicitudin tellus, vel <strong>mattis ligula</strong> leo id mi. In sodales ante
- sollicitudin, varius metus id, varius nunc. Aenean rhoncus nisl a quam eleifend,
- vitae volutpat erat vulputate. Nullam scelerisque elit sit amet massa egestas,
-  eu adipiscing lorem porttitor.</p>
-</div><div class="preview"><iframe scrolling="no"></iframe></div><div class="source hidden">&lt;label class=&quot;test&quot;&gt;This is a test&lt;/label&gt;</div></div></div><div id="Misc" class="section"><h2>Misc</h2><div class="guide"><h3>Test<a href="#" class="toggle">Toggle source</a></h3><div class="preview"><iframe scrolling="no"></iframe></div><div class="source hidden">&lt;div class=&quot;test&quot;&gt;This is a test&lt;/div&gt; &lt;div class=&quot;test&quot;&gt;This is another test&lt;/div&gt;</div></div><div class="guide"><h3>Lists<a href="#" class="toggle">Toggle source</a></h3><div class="description"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ac diam
-interdum augue blandit eleifend. Donec egestas, augue nec malesuada ullamcorper,
- sapien urna sollicitudin tellus, vel <strong>mattis ligula</strong> leo id mi. In sodales ante
- sollicitudin, varius metus id, varius nunc. Aenean rhoncus nisl a quam eleifend,
- vitae volutpat erat vulputate. Nullam scelerisque elit sit amet massa egestas,
-  eu adipiscing lorem porttitor.</p>
-</div><div class="preview"><iframe scrolling="no"></iframe></div><div class="source hidden">&lt;ul class=&quot;list&quot;&gt; &lt;li class=&quot;list-item&quot;&gt;listitem&lt;/li&gt; &lt;li class=&quot;list-item&quot;&gt;listitem&lt;/li&gt; &lt;li class=&quot;list-item&quot;&gt;listitem&lt;/li&gt; &lt;li class=&quot;list-item&quot;&gt;listitem&lt;/li&gt; &lt;li class=&quot;list-item&quot;&gt;listitem&lt;/li&gt; &lt;li class=&quot;list-item&quot;&gt;listitem&lt;/li&gt; &lt;/ul&gt;</div></div></div><textarea class="source_css">body {
-  font: 18px Verdana;
+</style></head><body><div class="container"><h1 class="title-large">Styleguide Demo</h1><time class="generated">Generated at Thu Nov 07 2013 11:25:06 GMT+0100 (CET)</time><hr class="small"><nav class="index"><ul><li>&rsaquo; <a href="#Buttons">Buttons</a><ul><li>&rsaquo; <a href="#Buttons0">Square buttons</a></li><li>&rsaquo; <a href="#Buttons1">Round buttons</a></li><li>&rsaquo; <a href="#Buttons2">Links</a></li></ul></li><li>&rsaquo; <a href="#Typography">Typography</a><ul><li>&rsaquo; <a href="#Typography0">Headings</a></li><li>&rsaquo; <a href="#Typography1">Paragraphs</a></li></ul></li></ul></nav><hr class="small"><nav class="nav"><ul><li><a href="#Buttons">&rsaquo; Buttons</a></li><li><a href="#Typography">&rsaquo; Typography</a></li></ul></nav><div id="Buttons" class="section"><h2 class="title-medium">Buttons</h2><div id="Buttons0" class="guide"><h3 class="title-small">Square buttons<a href="#" class="toggle">Toggle source</a></h3><div class="description"><p>Very pretty square buttons</p>
+</div><div class="preview"><iframe scrolling="no"></iframe></div><div class="source hidden">&lt;a href=&quot;&quot; class=&quot;btn btn-small&quot;&gt;button&lt;/a&gt; &lt;a href=&quot;&quot; class=&quot;btn btn-medium&quot;&gt;button&lt;/a&gt; &lt;a href=&quot;&quot; class=&quot;btn btn-large&quot;&gt;button&lt;/a&gt;</div></div><div id="Buttons1" class="guide"><h3 class="title-small">Round buttons<a href="#" class="toggle">Toggle source</a></h3><div class="description"><p>Very pretty rounded buttons</p>
+</div><div class="preview"><iframe scrolling="no"></iframe></div><div class="source hidden">&lt;a href=&quot;&quot; class=&quot;btn btn-small btn-round&quot;&gt;button&lt;/a&gt; &lt;a href=&quot;&quot; class=&quot;btn btn-medium btn-round&quot;&gt;button&lt;/a&gt; &lt;a href=&quot;&quot; class=&quot;btn btn-large btn-round&quot;&gt;button&lt;/a&gt;</div></div><div id="Buttons2" class="guide"><h3 class="title-small">Links<a href="#" class="toggle">Toggle source</a></h3><div class="description"><p>Very pretty rounded buttons</p>
+</div><div class="preview"><iframe scrolling="no"></iframe></div><div class="source hidden">&lt;a href=&quot;&quot; class=&quot;btn-link&quot;&gt;button&lt;/a&gt;</div></div><hr class="small"></div><div id="Typography" class="section"><h2 class="title-medium">Typography</h2><div id="Typography0" class="guide"><h3 class="title-small">Headings<a href="#" class="toggle">Toggle source</a></h3><div class="description"><p>Very pretty headings</p>
+</div><div class="preview"><iframe scrolling="no"></iframe></div><div class="source hidden">&lt;h1 class=&quot;title-large&quot;&gt;Heading&lt;/h1&gt; &lt;h1 class=&quot;title-medium&quot;&gt;Heading&lt;/h1&gt; &lt;h1 class=&quot;title-small&quot;&gt;Heading&lt;/h1&gt;</div></div><div id="Typography1" class="guide"><h3 class="title-small">Paragraphs<a href="#" class="toggle">Toggle source</a></h3><div class="description"><p>Very pretty paragraphs</p>
+</div><div class="preview"><iframe scrolling="no"></iframe></div><div class="source hidden">&lt;p class=&quot;p-large&quot;&gt;Mutley, you snickering, floppy eared hound. When courage is needed, you're never around. Those medals you wear on your moth-eaten chest should be there for bungling at which you are best. So, stop that pigeon, stop that pigeon, stop that pigeon, stop that pigeon, stop that pigeon, stop that pigeon, stop that pigeon. Howwww! Nab him, jab him, tab him, grab him, stop that pigeon now.&lt;/p&gt; &lt;p class=&quot;p-medium&quot;&gt;Ten years ago a crack commando unit was sent to prison by a military court for a crime they didn't commit. These men promptly escaped from a maximum security stockade to the Los Angeles underground. Today, still wanted by the government, they survive as soldiers of fortune. If you have a problem and no one else can help, and if you can find them, maybe you can hire the A-team.&lt;/p&gt; &lt;p class=&quot;p-small&quot;&gt;There's a voice that keeps on calling me. Down the road, that's where I'll always be. Every stop I make, I make a new friend. Can't stay for long, just turn around and I'm gone again. Maybe tomorrow, I'll want to settle down, Until tomorrow, I'll just keep moving on.&lt;/p&gt;</div></div><hr class="small"></div><textarea class="source_css">body {
+  font: 16px Verdana;
 }
 
 /***
-  title: Test
-  section: Misc
+  title: Square buttons
+  section: Buttons
+  description: Very pretty square buttons
   example:
-    &lt;div class=&quot;test&quot;&gt;This is a test&lt;/div&gt;
-    &lt;div class=&quot;test&quot;&gt;This is another test&lt;/div&gt;
+    &lt;a href=&quot;&quot; class=&quot;btn btn-small&quot;&gt;button&lt;/a&gt;
+    &lt;a href=&quot;&quot; class=&quot;btn btn-medium&quot;&gt;button&lt;/a&gt;
+    &lt;a href=&quot;&quot; class=&quot;btn btn-large&quot;&gt;button&lt;/a&gt;
 ***/
-.test,
-.test2,
-.test2[fancy=true] {
-  background: blue;
-  color: #fff;
+
+.btn{
+  display: inline-block;
+  padding: .3em .6em;
+  color: white;
+  text-decoration: none;
+  text-transform: uppercase;
+  background-color: darkslateblue;
+}
+.btn:hover{
+  background-color: #38306E;
+}
+.btn-small{
+  font-size: .8em;
+}
+.btn-medium{
+  font-size: 1em;
+}
+.btn-large{
+  font-size: 1.3em;
 }
 
 
 /***
-  title: Another test
-  section: Forms - Common
-  example: &lt;input type=&quot;text&quot; class=&quot;test&quot;&gt;
-***/
-input.test {
-  background: green;
-}
-
-
-/***
-  title: Labels
-  section: Forms - Common
-  description: |
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ac diam
-    interdum augue blandit eleifend. Donec egestas, augue nec malesuada ullamcorper,
-     sapien urna sollicitudin tellus, vel **mattis ligula** leo id mi. In sodales ante
-     sollicitudin, varius metus id, varius nunc. Aenean rhoncus nisl a quam eleifend,
-     vitae volutpat erat vulputate. Nullam scelerisque elit sit amet massa egestas,
-      eu adipiscing lorem porttitor.
+  title: Round buttons
+  section: Buttons
+  description: Very pretty rounded buttons
   example:
-    &lt;label class=&quot;test&quot;&gt;This is a test&lt;/label&gt;
+    &lt;a href=&quot;&quot; class=&quot;btn btn-small btn-round&quot;&gt;button&lt;/a&gt;
+    &lt;a href=&quot;&quot; class=&quot;btn btn-medium btn-round&quot;&gt;button&lt;/a&gt;
+    &lt;a href=&quot;&quot; class=&quot;btn btn-large btn-round&quot;&gt;button&lt;/a&gt;
 ***/
-label.test {
-  background: yellow;
+
+.btn-round{
+  border-radius: 20px;
+}
+
+
+/***
+  title: Links
+  section: Buttons
+  description: Very pretty rounded buttons
+  example:
+    &lt;a href=&quot;&quot; class=&quot;btn-link&quot;&gt;button&lt;/a&gt;
+***/
+
+.btn-link{
+  background: none;
+  color: darkslateblue;
+}
+.btn-link:hover{
+  text-decoration: none;
 }
 
 
 
 /***
-  title: Lists
-  section: Misc
-  description: |
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ac diam
-    interdum augue blandit eleifend. Donec egestas, augue nec malesuada ullamcorper,
-     sapien urna sollicitudin tellus, vel **mattis ligula** leo id mi. In sodales ante
-     sollicitudin, varius metus id, varius nunc. Aenean rhoncus nisl a quam eleifend,
-     vitae volutpat erat vulputate. Nullam scelerisque elit sit amet massa egestas,
-      eu adipiscing lorem porttitor.
+  title: Headings
+  section: Typography
+  description: Very pretty headings
   example:
-    - &lt;ul class=&quot;list&quot;&gt;
-    - &amp;li &lt;li class=&quot;list-item&quot;&gt;listitem&lt;/li&gt;
-    - *li
-    - *li
-    - *li
-    - *li
-    - *li
-    - &lt;/ul&gt;
+    &lt;h1 class=&quot;title-large&quot;&gt;Heading&lt;/h1&gt;
+    &lt;h1 class=&quot;title-medium&quot;&gt;Heading&lt;/h1&gt;
+    &lt;h1 class=&quot;title-small&quot;&gt;Heading&lt;/h1&gt;
 ***/
-.list{
-  border: 1px solid red;
+
+h1, h2, h3, h4, h5{
+  margin: 0 0 .5em 0;
+  font-size: 1em;
+  line-height: 1;
+  font-weight: bold;
 }
-.list-item {
-  color: red;
-}</textarea><textarea class="source_js">console.log('im inside script.js')</textarea></div><script type="text/javascript">
+.title-large{
+  font-size: 1.8em;
+}
+.title-medium{
+  font-size: 1.4em;
+}
+.title-small{
+  font-size: 1.1em;
+}
+
+
+/***
+  title: Paragraphs
+  section: Typography
+  description: Very pretty paragraphs
+  example:
+    &lt;p class=&quot;p-large&quot;&gt;Mutley, you snickering, floppy eared hound. When courage is needed, you're never around. Those medals you wear on your moth-eaten chest should be there for bungling at which you are best. So, stop that pigeon, stop that pigeon, stop that pigeon, stop that pigeon, stop that pigeon, stop that pigeon, stop that pigeon. Howwww! Nab him, jab him, tab him, grab him, stop that pigeon now.&lt;/p&gt;
+    &lt;p class=&quot;p-medium&quot;&gt;Ten years ago a crack commando unit was sent to prison by a military court for a crime they didn't commit. These men promptly escaped from a maximum security stockade to the Los Angeles underground. Today, still wanted by the government, they survive as soldiers of fortune. If you have a problem and no one else can help, and if you can find them, maybe you can hire the A-team.&lt;/p&gt;
+    &lt;p class=&quot;p-small&quot;&gt;There's a voice that keeps on calling me. Down the road, that's where I'll always be. Every stop I make, I make a new friend. Can't stay for long, just turn around and I'm gone again. Maybe tomorrow, I'll want to settle down, Until tomorrow, I'll just keep moving on.&lt;/p&gt;
+***/
+
+
+.p-large{
+  font-size: 1.1em;
+  line-height: 1.3;
+}
+
+.p-medium{
+  font-size: .9em;
+  line-height: 1.5;
+}
+
+.p-small{
+  font-size: .6em;
+  line-height: 1.5;
+}
+</textarea><textarea class="source_js">console.log('im inside script.js')</textarea></div><script type="text/javascript">
 (function() {
   var Guide, all_frames, guide, scaleIframes, source_css, source_js, _i, _len, _ref;
 
