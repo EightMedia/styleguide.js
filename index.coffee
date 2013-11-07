@@ -14,7 +14,7 @@ class StyleGuide
     @source = ''
     @js = []
     @yamldoc = 'doc: '
-    @styleguide_css = "#{__dirname}/template/styleguide.css"
+    @stylesheets = ["#{__dirname}/template/styleguide.css"]
 
     
   parseFile: (src_file)->
@@ -61,6 +61,7 @@ class StyleGuide
         @yamldoc += "\n- #{content}"
 
 
+  # ---
   # legacy 
   collectYaml: (source)->
     css = new cssparse(source)
@@ -79,6 +80,8 @@ class StyleGuide
         @yamldoc += content
 
     return results
+  # legacy
+  # ---
     
 
   includeJS: (files)->
@@ -89,19 +92,33 @@ class StyleGuide
       @js.push fs.readFileSync(file, encoding:'utf8')
 
 
+  # use custom css
   customCSS: (filepath) ->
-    @styleguide_css = filepath
+    @stylesheets = [filepath]
+
+  # append custom css
+  appendCustomCSS: (filepath) ->
+    @stylesheets.push(filepath)
+
       
       
   renderToFile: (dest_file, src_template="#{__dirname}/template/index.jade")->
+
+    # concat all stylesheets
+    stylesheets = ''
+    for file in @stylesheets
+      stylesheets += fs.readFileSync(file, encoding: 'utf8')
+
+    # collect data
     data = 
       title: @title
       sections: @sections
       source_css: @source
       source_js: @js.join(";")
       marked: require 'marked'
-      styleguide_css: fs.readFileSync(@styleguide_css, encoding: 'utf8')
+      styleguide_css: stylesheets
       
+    # render template
     cons[@engine] src_template, data, (err, html)->
       if err then throw err
 
