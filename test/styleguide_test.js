@@ -83,7 +83,7 @@ exports.styleguide = {
     $('time').remove();
     actual = $.html();
 
-    test.equal(actual, expected, 'should be able to insert custom css');
+    test.equal(actual, expected, 'should be able to use references');
     test.done();
   }
 };
