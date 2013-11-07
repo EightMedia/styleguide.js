@@ -1,10 +1,10 @@
 {
   "name": "styleguidejs",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "generate styleguide from your css",
   "main": "index.coffee",
   "scripts": {
-    "test": "coffee test/test.coffee"
+    "test": "grunt"
   },
   "repository": "",
   "author": "J. Tangelder",

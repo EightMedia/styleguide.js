@@ -13,7 +13,8 @@ class StyleGuide
     @sections = []
     @source = ''
     @js = []
-    @styleguide_css = "#{__dirname}/template/styleguide.css"
+    @yamldoc = 'doc: '
+    @stylesheets = ["#{__dirname}/template/styleguide.css"]
 
     
   parseFile: (src_file)->
@@ -21,7 +22,8 @@ class StyleGuide
     
 
   parseCSS: (@source)->
-    guides = @collectYaml(@source)
+    @collectYamlDoc(@source)
+    guides = @parseYaml(@yamldoc).doc
 
     # get all sections
     sections = {}
@@ -46,7 +48,28 @@ class StyleGuide
     @sections.sort (a,b)->
       return (a.title > b.title)
 
-      
+
+  collectYamlDoc: (source) ->
+    css = new cssparse(source)
+    regex = /^\*\*[\s\S]*\*\*$/
+
+    # find special block comments,
+    # /*** YAML ***/
+    for rule in css.stylesheet.rules
+      if rule.comment and rule.comment.match(regex)
+        content = rule.comment.substr(2).slice(0,-2)
+        @yamldoc += "\n- #{content}"
+
+
+  parseYaml: (source) ->
+    try
+      return yaml.safeLoad(source, schema: yaml.FAILSAFE_SCHEMA)
+    catch err then throw err
+    
+
+
+  # ---
+  # legacy 
   collectYaml: (source)->
     css = new cssparse(source)
     regex = /^\*\*[\s\S]*\*\*$/
@@ -61,7 +84,11 @@ class StyleGuide
         try
           results.push yaml.safeLoad(content, schema: yaml.FAILSAFE_SCHEMA)
         catch err then throw err    
+        @yamldoc += content
+
     return results
+  # legacy
+  # ---
     
 
   includeJS: (files)->
@@ -72,19 +99,33 @@ class StyleGuide
       @js.push fs.readFileSync(file, encoding:'utf8')
 
 
+  # use custom css
   customCSS: (filepath) ->
-    @styleguide_css = filepath
+    @stylesheets = [filepath]
+
+  # append custom css
+  appendCustomCSS: (filepath) ->
+    @stylesheets.push(filepath)
+
       
       
   renderToFile: (dest_file, src_template="#{__dirname}/template/index.jade")->
+
+    # concat all stylesheets
+    stylesheets = ''
+    for file in @stylesheets
+      stylesheets += fs.readFileSync(file, encoding: 'utf8')
+
+    # collect data
     data = 
       title: @title
       sections: @sections
       source_css: @source
       source_js: @js.join(";")
       marked: require 'marked'
-      styleguide_css: fs.readFileSync(@styleguide_css)
+      styleguide_css: stylesheets
       
+    # render template
     cons[@engine] src_template, data, (err, html)->
       if err then throw err
 

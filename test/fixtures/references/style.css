@@ -1,0 +1,33 @@
+body {
+  font: 16px Verdana;
+}
+
+/***
+  title: Internal anchor
+  section: References
+  description: Reference to anchor in the same section
+  example:
+    - <ul>
+    - &li | 
+      <li>list item</li>
+    - *li
+    - *li
+    - *li
+    - *li
+    - </ul>
+***/
+
+
+/***
+  title: External anchor
+  section: References
+  description: Reference to anchor in different section
+  example:
+    - <ul>
+    - *li
+    - *li
+    - *li
+    - *li
+    - </ul>
+***/
+
