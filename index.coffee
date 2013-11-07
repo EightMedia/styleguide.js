@@ -13,6 +13,7 @@ class StyleGuide
     @sections = []
     @source = ''
     @js = []
+    @yamldoc = 'doc: '
     @styleguide_css = "#{__dirname}/template/styleguide.css"
 
     
@@ -21,7 +22,8 @@ class StyleGuide
     
 
   parseCSS: (@source)->
-    guides = @collectYaml(@source)
+    @collectYamlDoc(@source)
+    guides = yaml.safeLoad(@yamldoc, schema: yaml.FAILSAFE_SCHEMA).doc
 
     # get all sections
     sections = {}
@@ -46,7 +48,20 @@ class StyleGuide
     @sections.sort (a,b)->
       return (a.title > b.title)
 
-      
+
+  collectYamlDoc: (source) ->
+    css = new cssparse(source)
+    regex = /^\*\*[\s\S]*\*\*$/
+
+    # find special block comments,
+    # /*** YAML ***/
+    for rule in css.stylesheet.rules
+      if rule.comment and rule.comment.match(regex)
+        content = rule.comment.substr(2).slice(0,-2)
+        @yamldoc += "\n- #{content}"
+
+
+  # legacy 
   collectYaml: (source)->
     css = new cssparse(source)
     regex = /^\*\*[\s\S]*\*\*$/
@@ -61,6 +76,8 @@ class StyleGuide
         try
           results.push yaml.safeLoad(content, schema: yaml.FAILSAFE_SCHEMA)
         catch err then throw err    
+        @yamldoc += content
+
     return results
     
 

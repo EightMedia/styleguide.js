@@ -233,10 +233,19 @@ hr.small{
 .source_css {
   display: none;
 }
-</style></head><body><div class="container"><h1 class="title-large">Styleguide Demo</h1><time class="generated">Generated at Thu Nov 07 2013 11:56:44 GMT+0100 (CET)</time><hr class="small"><nav class="index"><ul><li>&rsaquo; <a href="#References">References</a><ul><li>&rsaquo; <a href="#References0">internal anchor</a></li></ul></li></ul></nav><hr class="small"><nav class="nav"><ul><li><a href="#References">&rsaquo; References</a></li></ul></nav><div id="References" class="section"><h2 class="title-medium">References</h2><div id="References0" class="guide"><h3 class="title-small">internal anchor<a href="#" class="toggle">Toggle source</a></h3><div class="description"><p>Reference to anchor in the same section</p>
+</style></head><body><div class="container"><h1 class="title-large">Styleguide Demo</h1><time class="generated">Generated at Thu Nov 07 2013 12:11:56 GMT+0100 (CET)</time><hr class="small"><nav class="index"><ul><li>&rsaquo; <a href="#References">References</a><ul><li>&rsaquo; <a href="#References0">Internal anchor</a></li><li>&rsaquo; <a href="#References1">External anchor</a></li></ul></li></ul></nav><hr class="small"><nav class="nav"><ul><li><a href="#References">&rsaquo; References</a></li></ul></nav><div id="References" class="section"><h2 class="title-medium">References</h2><div id="References0" class="guide"><h3 class="title-small">Internal anchor<a href="#" class="toggle">Toggle source</a></h3><div class="description"><p>Reference to anchor in the same section</p>
 </div><div class="preview"><iframe scrolling="no"></iframe></div><div class="source hidden">&lt;ul&gt; 
 &lt;li&gt;list item&lt;/li&gt;
  
+&lt;li&gt;list item&lt;/li&gt;
+ 
+&lt;li&gt;list item&lt;/li&gt;
+ 
+&lt;li&gt;list item&lt;/li&gt;
+ 
+&lt;li&gt;list item&lt;/li&gt;
+ &lt;/ul&gt;</div></div><div id="References1" class="guide"><h3 class="title-small">External anchor<a href="#" class="toggle">Toggle source</a></h3><div class="description"><p>Reference to anchor in different section</p>
+</div><div class="preview"><iframe scrolling="no"></iframe></div><div class="source hidden">&lt;ul&gt; 
 &lt;li&gt;list item&lt;/li&gt;
  
 &lt;li&gt;list item&lt;/li&gt;
@@ -249,7 +258,7 @@ hr.small{
 }
 
 /***
-  title: internal anchor
+  title: Internal anchor
   section: References
   description: Reference to anchor in the same section
   example:
@@ -261,7 +270,23 @@ hr.small{
     - *li
     - *li
     - &lt;/ul&gt;
-***/</textarea><textarea class="source_js"></textarea></div><script type="text/javascript">
+***/
+
+
+/***
+  title: External anchor
+  section: References
+  description: Reference to anchor in different section
+  example:
+    - &lt;ul&gt;
+    - *li
+    - *li
+    - *li
+    - *li
+    - &lt;/ul&gt;
+***/
+
+</textarea><textarea class="source_js"></textarea></div><script type="text/javascript">
 (function() {
   var Guide, all_frames, guide, scaleIframes, source_css, source_js, _i, _len, _ref;
 

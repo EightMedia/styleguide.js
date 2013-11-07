@@ -9,7 +9,6 @@ var $, sg;
 exports.styleguide = {
 
   setUp: function(done) {
-    
     done();
   },
 
