@@ -1,0 +1,40 @@
+body {
+  font: 16px Verdana;
+}
+
+/***
+  title: list
+  section: References
+  example:
+    - <ul>
+    - &li | 
+      <li>list item</li>
+    - *li
+    - *li
+    - *li
+    - *li
+    - </ul>
+
+    
+***/
+
+.btn{
+  display: inline-block;
+  padding: .3em .6em;
+  color: white;
+  text-decoration: none;
+  text-transform: uppercase;
+  background-color: darkslateblue;
+}
+.btn:hover{
+  background-color: #38306E;
+}
+.btn-small{
+  font-size: .8em;
+}
+.btn-medium{
+  font-size: 1em;
+}
+.btn-large{
+  font-size: 1.3em;
+}
