@@ -163,5 +163,5 @@ Append your own stylesheet for the styleguide page.
 See [grunt-styleguidejs](https://github.com/EightMedia/grunt-styleguidejs) for using styleguide.js inside your gruntfile.
 
 
-### Screenshot ([source](test/index.html))
+### Screenshot ([source](https://rawgithub.com/EightMedia/styleguide.js/master/test/expected/index.html))
 ![Screenshot](screenshot.png)
