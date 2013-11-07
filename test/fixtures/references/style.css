@@ -3,8 +3,9 @@ body {
 }
 
 /***
-  title: list
+  title: internal anchor
   section: References
+  description: Reference to anchor in the same section
   example:
     - <ul>
     - &li | 
@@ -14,27 +15,4 @@ body {
     - *li
     - *li
     - </ul>
-
-    
 ***/
-
-.btn{
-  display: inline-block;
-  padding: .3em .6em;
-  color: white;
-  text-decoration: none;
-  text-transform: uppercase;
-  background-color: darkslateblue;
-}
-.btn:hover{
-  background-color: #38306E;
-}
-.btn-small{
-  font-size: .8em;
-}
-.btn-medium{
-  font-size: 1em;
-}
-.btn-large{
-  font-size: 1.3em;
-}
