@@ -23,7 +23,7 @@ class StyleGuide
 
   parseCSS: (@source)->
     @collectYamlDoc(@source)
-    guides = yaml.safeLoad(@yamldoc, schema: yaml.FAILSAFE_SCHEMA).doc
+    guides = @parseYaml(@yamldoc).doc
 
     # get all sections
     sections = {}
@@ -59,6 +59,13 @@ class StyleGuide
       if rule.comment and rule.comment.match(regex)
         content = rule.comment.substr(2).slice(0,-2)
         @yamldoc += "\n- #{content}"
+
+
+  parseYaml: (source) ->
+    try
+      return yaml.safeLoad(source, schema: yaml.FAILSAFE_SCHEMA)
+    catch err then throw err
+    
 
 
   # ---

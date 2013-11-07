@@ -15,78 +15,89 @@ The properties `title`, `section` and `example` are required by the default temp
 
 ````css
 body {
-  font: 18px Verdana;
+  font: 16px Verdana;
 }
 
 /***
-  title: Test
-  section: Misc
+  title: Square buttons
+  section: Buttons
+  description: Very pretty square buttons
   example:
-    <div class="test">This is a test</div>
-    <div class="test">This is another test</div>
+    <a href="" class="btn btn-small">button</a>
+    <a href="" class="btn btn-medium">button</a>
+    <a href="" class="btn btn-large">button</a>
 ***/
-.test,
-.test2,
-.test2[fancy=true] {
-  background: blue;
-  color: #fff;
+
+.btn{
+  display: inline-block;
+  padding: .3em .6em;
+  color: white;
+  text-decoration: none;
+  text-transform: uppercase;
+  background-color: darkslateblue;
+}
+.btn:hover{
+  background-color: #38306E;
+}
+.btn-small{
+  font-size: .8em;
+}
+.btn-medium{
+  font-size: 1em;
+}
+.btn-large{
+  font-size: 1.3em;
 }
 
 
 /***
-  title: Another test
-  section: Forms - Common
-  example: <input type="text" class="test">
-***/
-input.test {
-  background: green;
-}
-
-
-/***
-  title: Labels
-  section: Forms - Common
-  description: |
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ac diam
-    interdum augue blandit eleifend. Donec egestas, augue nec malesuada ullamcorper,
-     sapien urna sollicitudin tellus, vel **mattis ligula** leo id mi. In sodales ante
-     sollicitudin, varius metus id, varius nunc. Aenean rhoncus nisl a quam eleifend,
-     vitae volutpat erat vulputate. Nullam scelerisque elit sit amet massa egestas,
-      eu adipiscing lorem porttitor.
+  title: Round buttons
+  section: Buttons
+  description: Very pretty rounded buttons
   example:
-    <label class="test">This is a test</label>
+    <a href="" class="btn btn-small btn-round">button</a>
+    <a href="" class="btn btn-medium btn-round">button</a>
+    <a href="" class="btn btn-large btn-round">button</a>
 ***/
-label.test {
-  background: yellow;
+
+.btn-round{
+  border-radius: 20px;
 }
 
 
+/***
+  title: Links
+  section: Buttons
+  description: Very pretty rounded buttons
+  example:
+    <a href="" class="btn-link">button</a>
+***/
+
+.btn-link{
+  background: none;
+  color: darkslateblue;
+}
+.btn-link:hover{
+  text-decoration: none;
+}
 
 /***
-  title: Lists
-  section: Misc
-  description: |
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ac diam
-    interdum augue blandit eleifend. Donec egestas, augue nec malesuada ullamcorper,
-     sapien urna sollicitudin tellus, vel **mattis ligula** leo id mi. In sodales ante
-     sollicitudin, varius metus id, varius nunc. Aenean rhoncus nisl a quam eleifend,
-     vitae volutpat erat vulputate. Nullam scelerisque elit sit amet massa egestas,
-      eu adipiscing lorem porttitor.
+  title: Internal anchor
+  section: References
+  description: Reference to anchor in the same section
   example:
-    - <ul class="list">
-    - &li <li class="list-item">listitem</li>
-    - *li
+    - <ul>
+    - &li | 
+      <li>list item</li>
     - *li
     - *li
     - *li
     - *li
     - </ul>
 ***/
-.list{
-  border: 1px solid red;
-}
-.list-item {
-  color: red;
+
+li{
+  color: darkslateblue;
 }
 ````
 
@@ -98,6 +109,7 @@ sg.parseFile("mystyle.css");
 sg.includeJS("modernizr.js");
 sg.includeJS("jquery.js");
 sg.customCSS("custom.css");
+sg.appendCustomCSS("append-custom.css");
 sg.renderToFile("test/index.html");
 ````
 
@@ -122,14 +134,29 @@ Adds this file to the export. You can use this to load scripts like Modernizr an
 
 `collectYaml( source )`
 
-Collect the Yaml data comments in the given source. Is used internally, but can be used for your own magic.
+Collect the Yaml data comments in the given source individually. Is used internally, but can be used for your own magic. Returns an array containing json (parsed yaml).
+
+`collectYamlDoc( source )`
+
+Collect all the Yaml data comments in the given source. Is used internally, but can be used for your own magic. Returns a string containing (unparsed) yaml.
+
+`parseYaml( source )`
+
+Parses a yaml doc and returns json.
 
 `renderToFile( dest_file, template='template/index.jade' )`
 
 Render the styleguide to this file, with the given template. 
 
-`sg.customCSS( css_file )`
+`customCSS( css_file )`
+
 Use your own stylesheet for the styleguide page.
+
+`appendCustomCSS( css_file )`
+
+Append your own stylesheet for the styleguide page.
+
+
 
 
 ### Grunt task
