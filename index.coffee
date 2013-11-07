@@ -83,7 +83,7 @@ class StyleGuide
       source_css: @source
       source_js: @js.join(";")
       marked: require 'marked'
-      styleguide_css: fs.readFileSync(@styleguide_css)
+      styleguide_css: fs.readFileSync(@styleguide_css, encoding: 'utf8')
       
     cons[@engine] src_template, data, (err, html)->
       if err then throw err

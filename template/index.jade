@@ -2,22 +2,44 @@
 html
   head
     title #{title}
-    style #{styleguide_css}
+    style !{styleguide_css}
   body
     .container
+      h1.title-large #{title}
       time.generated Generated at #{Date()}
-      h1 #{title}
+
+      hr.small
+
+      nav.index
+        ul
+          for section in sections
+            li
+              | &rsaquo; 
+              a(href="##{section.slug}")= section.title
+
+              ul
+                for guide,i in section.guides
+                  li
+                    | &rsaquo; 
+                    a(href="##{section.slug}#{i}")= guide.title
+
+
+      hr.small
+
       nav.nav
         ul
           for section in sections
-            li: a(href="##{section.slug}")= section.title
+            li
+              a(href="##{section.slug}")
+                | &rsaquo; #{section.title}
+                
 
       for section in sections
         .section(id=section.slug)
-          h2= section.title
-          for guide in section.guides
-            .guide
-              h3= guide.title
+          h2.title-medium= section.title
+          for guide,i in section.guides
+            .guide(id="#{section.slug}#{i}")
+              h3.title-small= guide.title
                 a.toggle(href="#") Toggle source
 
               if guide.description
@@ -32,6 +54,8 @@ html
                   .source.hidden= guide.example.join(' ').trim()
                 else
                   .source.hidden= guide.example.trim()
+
+          hr.small
 
       textarea.source_css= source_css
       textarea.source_js= source_js

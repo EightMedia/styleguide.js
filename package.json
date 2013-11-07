@@ -4,7 +4,7 @@
   "description": "generate styleguide from your css",
   "main": "index.coffee",
   "scripts": {
-    "test": "coffee test/test.coffee"
+    "test": "grunt"
   },
   "repository": "",
   "author": "J. Tangelder",
