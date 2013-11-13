@@ -1,10 +1,17 @@
 {
   "name": "styleguidejs",
   "version": "0.0.5",
-  "description": "generate styleguide from your css",
+  "description": "Generate styleguide from your css",
   "main": "index.coffee",
   "scripts": {
     "test": "grunt"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/eightmedia/styleguide.js.git"
+  },
+  "bugs": {
+    "url": "https://github.com/eightmedia/styleguide.js/issues"
   },
   "repository": "",
   "author": "Eight Media",
