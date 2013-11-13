@@ -23,7 +23,11 @@ class StyleGuide
 
   parseCSS: (@source)->
     @collectYamlDoc(@source)
-    guides = @parseYaml(@yamldoc).doc
+    parsedYaml = @parseYaml(@yamldoc)
+
+    return false if not parsedYaml?.doc
+
+    guides = parsedYaml.doc
 
     # get all sections
     sections = {}
@@ -64,7 +68,9 @@ class StyleGuide
   parseYaml: (source) ->
     try
       return yaml.safeLoad(source, schema: yaml.FAILSAFE_SCHEMA)
-    catch err then throw err
+    catch err 
+      console.log err.message
+      throw err
     
 
 
