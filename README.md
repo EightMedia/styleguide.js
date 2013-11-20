@@ -4,7 +4,7 @@ styleguide.js
 Generate a styleguide from your CSS, by adding [YAML](http://en.wikipedia.org/wiki/YAML) data in the comments. 
 It generates a [self-contained html](https://rawgithub.com/EightMedia/styleguide.js/master/test/expected/index.html) file. Works great for component based CSS.
 
-## [Example generated styleguide](https://rawgithub.com/EightMedia/styleguide.js/master/test/expected/index.html)
+#### [View the example generated styleguide](https://rawgithub.com/EightMedia/styleguide.js/master/test/expected/index.html)
 
 
 ### Install
