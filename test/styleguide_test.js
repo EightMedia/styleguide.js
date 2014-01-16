@@ -2,7 +2,7 @@
 
 var grunt = require('grunt');
 var cheerio = require('cheerio');
-var StyleGuide = require('../index');
+var StyleGuide = require('../main.js');
 
 var $, sg;
 

@@ -6,6 +6,7 @@ yaml = require 'js-yaml'
 cssparse = require 'css-parse'
 mkdirp = require 'mkdirp'
 path = require 'path'
+marked = require 'marked'
 
 
 class StyleGuide
@@ -128,7 +129,7 @@ class StyleGuide
       sections: @sections
       source_css: @source
       source_js: @js.join(";")
-      marked: require 'marked'
+      marked: marked
       styleguide_css: stylesheets
       
     # render template

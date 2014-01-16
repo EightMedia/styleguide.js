@@ -1,13 +1,12 @@
 source_css = document.querySelector('textarea.source_css').textContent
 source_js = document.querySelector('textarea.source_js').textContent
 
-Guide = (guide)->
+Guide = (guide) ->
   preview = guide.querySelector('.preview')
   source = guide.querySelector('.source')
   iframe = guide.querySelector('.preview iframe')
 
-  if not source
-    false
+  return false if not source
 
   guide_source = source.textContent
 

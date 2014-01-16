@@ -1,4 +1,4 @@
-!!!5
+doctype html
 html
   head
     title #{title}
@@ -43,8 +43,7 @@ html
                 a.toggle(href="#") Toggle source
 
               if guide.description
-                .description
-                  !{marked(guide.description)}
+                .description !{marked(guide.description)}
 
               if guide.example
                 .preview
@@ -60,4 +59,6 @@ html
       textarea.source_css= source_css
       textarea.source_js= source_js
 
-    include styleguide.coffee
+    | <script>
+    include styleguide.js
+    | </script>

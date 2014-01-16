@@ -1,34 +1,32 @@
 {
   "name": "styleguidejs",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Generate styleguide from your css",
   "main": "index.coffee",
   "scripts": {
     "test": "grunt"
   },
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/eightmedia/styleguide.js.git"
-  },
+  "repository": "",
   "bugs": {
     "url": "https://github.com/eightmedia/styleguide.js/issues"
   },
-  "repository": "",
   "author": "Eight Media",
   "license": "MIT",
   "dependencies": {
     "consolidate": "*",
-    "coffee-script": "*",
     "js-yaml": "*",
     "css-parse": "*",
-    "marked": "*",
-    "jade": "*",
+    "marked": "~0.3.0",
+    "jade": "~1.1.4",
     "mkdirp": "~0.3.5"
   },
   "devDependencies": {
     "grunt-contrib-clean": "~0.4.0",
     "grunt-contrib-nodeunit": "~0.2.0",
     "grunt": "~0.4.1",
-    "cheerio": "~0.12.3"
+    "cheerio": "~0.12.3",
+    "grunt-contrib-coffee": "~0.8.0",
+    "grunt-contrib-watch": "~0.5.3",
+    "coffee-script": "*"
   }
 }
