@@ -2,7 +2,7 @@
   "name": "styleguidejs",
   "version": "0.0.6",
   "description": "Generate styleguide from your css",
-  "main": "index.coffee",
+  "main": "main.js",
   "scripts": {
     "test": "grunt"
   },
