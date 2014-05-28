@@ -20,13 +20,13 @@ html
           for elements, section in docs
             li
               | &rsaquo;
-              a(href="##{section.slug}")= section
+              a(href="##{section}")= section
 
               ul
-                for element in elements
+                for element, i in elements
                   li
                     | &rsaquo;
-                    a(href="##{element.slug}#{i}")= element.title
+                    a(href="##{section.replace(/[^a-z0-9]/ig,'')}#{i}")= element.title
 
 
       hr.small
@@ -43,7 +43,7 @@ html
         .section(id=section)
           h2.title-medium= section
           for element, i in elements
-            .guide(id="#{element.uid}")
+            .guide(id="#{section.replace(/[^a-z0-9]/ig,'')}#{i}")
               h3.title-small= element.title
                 a.toggle(href="#") Toggle source
 
