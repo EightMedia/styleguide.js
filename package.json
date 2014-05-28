@@ -1,10 +1,10 @@
 {
   "name": "styleguidejs",
-  "version": "0.0.7",
+  "version": "0.1.0",
   "description": "Generate styleguide from your css",
   "main": "main.js",
   "scripts": {
-    "test": "grunt"
+    "test": "rm -rf ./test/tmp/* && ./node_modules/nodeunit/bin/nodeunit test/styleguide_test.js"
   },
   "repository": "",
   "bugs": {
@@ -14,19 +14,14 @@
   "license": "MIT",
   "dependencies": {
     "consolidate": "*",
-    "js-yaml": "*",
     "css-parse": "*",
-    "marked": "~0.3.0",
     "jade": "~1.1.4",
-    "mkdirp": "~0.3.5"
+    "js-yaml": "*",
+    "lodash": "^2.4.1",
+    "marked": "~0.3.0"
   },
   "devDependencies": {
-    "grunt-contrib-clean": "~0.4.0",
-    "grunt-contrib-nodeunit": "~0.2.0",
-    "grunt": "~0.4.1",
     "cheerio": "~0.12.3",
-    "grunt-contrib-coffee": "~0.8.0",
-    "grunt-contrib-watch": "~0.5.3",
-    "coffee-script": "*"
+    "nodeunit": "^0.9.0"
   }
 }

@@ -1,4 +1,4 @@
-<!DOCTYPE html><html><head><title>Styleguide Demo</title><style>@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,600,700);
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Styleguide</title><style>@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,600,700);
 
 
 body {
@@ -229,31 +229,22 @@ hr.small{
 
 
 /* misc */
-.source_js,
-.source_css {
+.sourceJs,
+.sourceCss {
   display: none;
 }
-</style></head><body><div class="container"><h1 class="title-large">Styleguide Demo</h1><time class="generated">Generated at Thu Jan 16 2014 09:04:11 GMT+0100 (CET)</time><hr class="small"><nav class="index"><ul><li>&rsaquo; <a href="#References">References</a><ul><li>&rsaquo; <a href="#References0">Internal anchor</a></li><li>&rsaquo; <a href="#References1">External anchor</a></li></ul></li></ul></nav><hr class="small"><nav class="nav"><ul><li><a href="#References">&rsaquo; References</a></li></ul></nav><div id="References" class="section"><h2 class="title-medium">References</h2><div id="References0" class="guide"><h3 class="title-small">Internal anchor<a href="#" class="toggle">Toggle source</a></h3><div class="description"><p>Reference to anchor in the same section</p>
-</div><div class="preview"><iframe scrolling="no"></iframe></div><div class="source hidden">&lt;ul&gt; 
-&lt;li&gt;list item&lt;/li&gt;
- 
-&lt;li&gt;list item&lt;/li&gt;
- 
-&lt;li&gt;list item&lt;/li&gt;
- 
-&lt;li&gt;list item&lt;/li&gt;
- 
-&lt;li&gt;list item&lt;/li&gt;
- &lt;/ul&gt;</div></div><div id="References1" class="guide"><h3 class="title-small">External anchor<a href="#" class="toggle">Toggle source</a></h3><div class="description"><p>Reference to anchor in different section</p>
-</div><div class="preview"><iframe scrolling="no"></iframe></div><div class="source hidden">&lt;ul&gt; 
-&lt;li&gt;list item&lt;/li&gt;
- 
-&lt;li&gt;list item&lt;/li&gt;
- 
-&lt;li&gt;list item&lt;/li&gt;
- 
-&lt;li&gt;list item&lt;/li&gt;
- &lt;/ul&gt;</div></div><hr class="small"></div><textarea class="source_css">body {
+</style></head><body><div class="container"><h1 class="title-large">Styleguide</h1><time class="generated">Generated at Wed May 28 2014 14:38:38 GMT+0200 (CEST)</time><hr class="small"><nav class="index"><ul><li>&rsaquo;<a href="#undefined">References</a><ul><li>&rsaquo;<a href="#undefinedundefined">Internal anchor</a></li><li>&rsaquo;<a href="#undefinedundefined">External anchor</a></li></ul></li></ul></nav><hr class="small"><nav class="nav"><ul><li><a href="#References">&rsaquo; References</a></li></ul></nav><div id="References" class="section"><h2 class="title-medium">References</h2><div id="undefined" class="guide"><h3 class="title-small">Internal anchor<a href="#" class="toggle">Toggle source</a></h3><div class="description"><p>Reference to anchor in the same section</p>
+</div><div class="preview"><iframe scrolling="no"></iframe></div><div class="source hidden">&lt;ul&gt; &lt;li&gt;list item&lt;/li&gt;
+ &lt;li&gt;list item&lt;/li&gt;
+ &lt;li&gt;list item&lt;/li&gt;
+ &lt;li&gt;list item&lt;/li&gt;
+ &lt;li&gt;list item&lt;/li&gt;
+ &lt;/ul&gt;</div></div><div id="undefined" class="guide"><h3 class="title-small">External anchor<a href="#" class="toggle">Toggle source</a></h3><div class="description"><p>Reference to anchor in different section</p>
+</div><div class="preview"><iframe scrolling="no"></iframe></div><div class="source hidden">&lt;ul&gt; &lt;li&gt;list item&lt;/li&gt;
+ &lt;li&gt;list item&lt;/li&gt;
+ &lt;li&gt;list item&lt;/li&gt;
+ &lt;li&gt;list item&lt;/li&gt;
+ &lt;/ul&gt;</div></div><hr class="small"></div><textarea class="sourceCss">body {
   font: 16px Verdana;
 }
 
@@ -286,60 +277,57 @@ hr.small{
     - &lt;/ul&gt;
 ***/
 
-</textarea><textarea class="source_js"></textarea></div><script>(function() {
-  var Guide, all_frames, guide, scaleIframes, source_css, source_js, _i, _len, _ref;
+</textarea><textarea class="sourceJs"></textarea></div><script>sourceCss = document.querySelector('textarea.sourceCss').textContent;
+sourceJs = document.querySelector('textarea.sourceJs').textContent;
 
-  source_css = document.querySelector('textarea.source_css').textContent;
+// forEach for nodelists...
+NodeList.prototype.forEach = Array.prototype.forEach;
 
-  source_js = document.querySelector('textarea.source_js').textContent;
+function GuideElement(element) {
+    var preview = element.querySelector('.preview');
+    var source = element.querySelector('.source');
+    var iframe = element.querySelector('.preview iframe');
 
-  Guide = function(guide) {
-    var d, guide_source, iframe, preview, script, source, stylesheet;
-    preview = guide.querySelector('.preview');
-    source = guide.querySelector('.source');
-    iframe = guide.querySelector('.preview iframe');
-    if (!source) {
-      return false;
+    if(!source) {
+        return false;
     }
-    guide_source = source.textContent;
-    d = iframe.contentWindow.document;
+
+    var d = iframe.contentWindow.document;
     d.open();
-    d.write("<!DOCTYPE html><html><head></head><body style='padding: 20px'>" + guide_source + "</body></html>");
-    stylesheet = d.createElement('style');
-    stylesheet.innerHTML = source_css;
+    d.write("<!DOCTYPE html><html><head></head><body style='padding: 20px'>"+ source.textContent +"</body></html>");
+
+    // append stylesheet
+    var stylesheet = d.createElement('style');
+    stylesheet.innerHTML = sourceCss;
     d.querySelector('head').appendChild(stylesheet);
-    script = d.createElement('script');
-    script.innerHTML = source_js;
+
+    // append js
+    var script = d.createElement('script');
+    script.innerHTML = sourceJs;
     d.querySelector('head').appendChild(script);
+
     d.close();
-    return guide.querySelector("a.toggle").addEventListener("click", function(ev) {
-      preview.classList.toggle('hidden');
-      source.classList.toggle('hidden');
-      return ev.preventDefault();
+
+
+    // toggle link
+    element.querySelector("a.toggle").addEventListener("click", function(ev) {
+        preview.classList.toggle('hidden');
+        source.classList.toggle('hidden');
+        ev.preventDefault();
     });
-  };
+}
 
-  _ref = document.querySelectorAll('.guide');
-  for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-    guide = _ref[_i];
-    Guide(guide);
-  }
+document.querySelectorAll('.guide').forEach(function(guide) {
+    GuideElement(guide);
+});
 
-  all_frames = document.querySelectorAll('.preview iframe');
+var iframes = document.querySelectorAll('.preview iframe');
+function scaleIframes() {
+    iframes.forEach(function(frame) {
+        frame.height = frame.contentWindow.document.querySelector('html').scrollHeight;
+    });
+}
 
-  scaleIframes = function() {
-    var frame, _j, _len1, _results;
-    _results = [];
-    for (_j = 0, _len1 = all_frames.length; _j < _len1; _j++) {
-      frame = all_frames[_j];
-      _results.push(frame.height = frame.contentWindow.document.querySelector('html').scrollHeight);
-    }
-    return _results;
-  };
-
-  scaleIframes();
-
-  setInterval(scaleIframes, 500);
-
-}).call(this);
+scaleIframes();
+setInterval(scaleIframes, 500);
 </script></body></html>

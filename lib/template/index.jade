@@ -1,0 +1,68 @@
+doctype html
+html
+  head
+    meta(charset="utf-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+
+    title Styleguide
+
+    style
+      include styleguide.css
+  body
+    .container
+      h1.title-large Styleguide
+      time.generated Generated at #{Date()}
+
+      hr.small
+
+      nav.index
+        ul
+          for elements, section in docs
+            li
+              | &rsaquo;
+              a(href="##{section.slug}")= section
+
+              ul
+                for element in elements
+                  li
+                    | &rsaquo;
+                    a(href="##{element.slug}#{i}")= element.title
+
+
+      hr.small
+
+      nav.nav
+        ul
+          for elements, section in docs
+            li
+              a(href="##{section}")
+                | &rsaquo; #{section}
+
+
+      for elements, section in docs
+        .section(id=section)
+          h2.title-medium= section
+          for element, i in elements
+            .guide(id="#{element.uid}")
+              h3.title-small= element.title
+                a.toggle(href="#") Toggle source
+
+              if element.description
+                .description !{marked(element.description)}
+
+              if element.example
+                .preview
+                  iframe(scrolling="no")
+
+                if Array.isArray(element.example)
+                  .source.hidden= element.example.join(' ').trim()
+                else
+                  .source.hidden= element.example.trim()
+
+          hr.small
+
+      textarea.sourceCss= css
+      textarea.sourceJs= js
+
+    script
+      include styleguide.js

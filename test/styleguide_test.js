@@ -1,111 +1,111 @@
 'use strict';
-
-var grunt = require('grunt');
+var fs = require('fs');
 var cheerio = require('cheerio');
 var StyleGuide = require('../main.js');
+var $;
 
-var $, sg;
+function readFile(file) {
+    return fs.readFileSync(file, {encoding: 'utf8'}).trim();
+}
+
 
 exports.styleguide = {
+    'default': function (test) {
+        test.expect(1);
 
-  setUp: function(done) {
-    sg = new StyleGuide('Styleguide Demo')
-    done();
-  },
+        var sg = new StyleGuide();
+        sg.addFile("test/fixtures/default/style.css");
+        sg.render({
+            outputFile: "test/tmp/index.html",
+            extraJs: ["test/fixtures/default/script.js"]
+        });
 
+        var actual = readFile('test/tmp/index.html');
+        var expected = readFile('test/expected/index.html');
 
-  // default
-  default: function(test) {
-    test.expect(1);
+        $ = cheerio.load(expected);
+        $('time').remove();
+        expected = $.html();
 
-    
-    sg.parseFile("test/fixtures/default/style.css")
-    sg.includeJS("test/fixtures/default/script.js")
-    sg.renderToFile("test/tmp/index.html")
+        $ = cheerio.load(actual);
+        $('time').remove();
+        actual = $.html();
 
-    var actual = grunt.file.read('test/tmp/index.html');
-    var expected = grunt.file.read('test/expected/index.html');
+        test.equal(actual, expected, 'should behave normally');
+        test.done();
+    },
 
-    $ = cheerio.load(expected);
-    $('time').remove();
-    expected = $.html();
+    customCss: function (test) {
+        test.expect(1);
 
-    $ = cheerio.load(actual);
-    $('time').remove();
-    actual = $.html();
+        var sg = new StyleGuide();
+        sg.addFile("test/fixtures/default/style.css");
+        sg.render({
+            extraCss: ["test/fixtures/custom-css/styleguide.css"],
+            outputFile: "test/tmp/custom-css.html"
+        });
 
-    test.equal(actual, expected, 'should behave normally');
-    test.done();
-  },
+        var actual = readFile('test/tmp/custom-css.html');
+        var expected = readFile('test/expected/custom-css.html');
 
+        $ = cheerio.load(expected);
+        $('time').remove();
+        expected = $.html();
 
-  // custom css
-  custom_css: function(test) {
-    test.expect(1);
+        $ = cheerio.load(actual);
+        $('time').remove();
+        actual = $.html();
 
-    sg.parseFile("test/fixtures/default/style.css")
-    sg.customCSS("test/fixtures/custom-css/styleguide.css")
-    sg.renderToFile("test/tmp/custom-css.html")
+        test.equal(actual, expected, 'should be able to use custom css');
+        test.done();
+    },
 
-    var actual = grunt.file.read('test/tmp/custom-css.html');
-    var expected = grunt.file.read('test/expected/custom-css.html');
+    appendCss: function (test) {
+        test.expect(1);
 
-    $ = cheerio.load(expected);
-    $('time').remove();
-    expected = $.html();
+        var sg = new StyleGuide();
+        sg.addFile("test/fixtures/default/style.css");
+        sg.render({
+            extraCss: ["test/fixtures/custom-css/styleguide.css"],
+            outputFile: "test/tmp/append-custom-css.html"
+        });
 
-    $ = cheerio.load(actual);
-    $('time').remove();
-    actual = $.html();
+        var actual = readFile('test/tmp/append-custom-css.html');
+        var expected = readFile('test/expected/append-custom-css.html');
 
-    test.equal(actual, expected, 'should be able to use custom css');
-    test.done();
-  },
+        $ = cheerio.load(expected);
+        $('time').remove();
+        expected = $.html();
 
+        $ = cheerio.load(actual);
+        $('time').remove();
+        actual = $.html();
 
-  // append css
-  append_css: function(test) {
-    test.expect(1);
+        test.equal(actual, expected, 'should be able to append custom css');
+        test.done();
+    },
 
-    sg.parseFile("test/fixtures/default/style.css")
-    sg.appendCustomCSS("test/fixtures/custom-css/styleguide.css")
-    sg.renderToFile("test/tmp/append-custom-css.html")
+    references: function (test) {
+        test.expect(1);
 
-    var actual = grunt.file.read('test/tmp/append-custom-css.html');
-    var expected = grunt.file.read('test/expected/append-custom-css.html');
+        var sg = new StyleGuide();
+        sg.addFile("test/fixtures/references/style.css");
+        sg.render({
+            outputFile: "test/tmp/references.html"
+        });
 
-    $ = cheerio.load(expected);
-    $('time').remove();
-    expected = $.html();
+        var actual = readFile('test/tmp/references.html');
+        var expected = readFile('test/expected/references.html');
 
-    $ = cheerio.load(actual);
-    $('time').remove();
-    actual = $.html();
+        $ = cheerio.load(expected);
+        $('time').remove();
+        expected = $.html();
 
-    test.equal(actual, expected, 'should be able to append custom css');
-    test.done();
-  },
+        $ = cheerio.load(actual);
+        $('time').remove();
+        actual = $.html();
 
-
-  // references
-  references: function(test) {
-    test.expect(1);
-
-    sg.parseFile("test/fixtures/references/style.css")
-    sg.renderToFile("test/tmp/references.html")
-
-    var actual = grunt.file.read('test/tmp/references.html');
-    var expected = grunt.file.read('test/expected/references.html');
-
-    $ = cheerio.load(expected);
-    $('time').remove();
-    expected = $.html();
-
-    $ = cheerio.load(actual);
-    $('time').remove();
-    actual = $.html();
-
-    test.equal(actual, expected, 'should be able to use references');
-    test.done();
-  }
+        test.equal(actual, expected, 'should be able to use references');
+        test.done();
+    }
 };

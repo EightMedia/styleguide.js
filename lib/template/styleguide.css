@@ -229,7 +229,7 @@ hr.small{
 
 
 /* misc */
-.source_js,
-.source_css {
+.sourceJs,
+.sourceCss {
   display: none;
 }
