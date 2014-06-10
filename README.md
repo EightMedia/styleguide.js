@@ -86,11 +86,16 @@ body {
 /***
   title: Includes
   section: Includes
-  description: Reference to anchor in the same section
+  description: Include example code from other items. You can refer to any attribute(set), like 'id'
   example:
-    below is the example code from the Links item in the Buttons section.
-    <include title="Links" section="Buttons">
+    <div class="btn-group">
+        <include title="Links" section="Buttons">
+        <include title="Links" section="Buttons">
+    </div>
 ***/
+.btn-group .btn-link {
+    background: green;
+}
 
 
 /***
