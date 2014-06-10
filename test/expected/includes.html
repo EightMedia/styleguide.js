@@ -233,50 +233,80 @@ hr.small{
 .sourceCss {
   display: none;
 }
-</style></head><body><div class="container"><h1 class="title-large">Styleguide</h1><time class="generated">Generated at Tue Jun 10 2014 16:20:24 GMT+0200 (CEST)</time><hr class="small"><nav class="index"><ul><li>&rsaquo;<a href="#References">References</a><ul><li>&rsaquo;<a href="#References0">Internal anchor</a></li><li>&rsaquo;<a href="#References1">External anchor</a></li></ul></li></ul></nav><hr class="small"><nav class="nav"><ul><li><a href="#References">&rsaquo; References</a></li></ul></nav><div id="References" class="section"><h2 class="title-medium">References</h2><div id="References0" class="guide"><h3 class="title-small">Internal anchor<a href="#" class="toggle">Toggle source</a></h3><div class="description"><p>Reference to anchor in the same section</p>
-</div><div class="preview"><iframe scrolling="no"></iframe></div><div class="source hidden">&lt;ul&gt; &lt;li&gt;list item&lt;/li&gt;
- &lt;li&gt;list item&lt;/li&gt;
- &lt;li&gt;list item&lt;/li&gt;
- &lt;li&gt;list item&lt;/li&gt;
- &lt;li&gt;list item&lt;/li&gt;
- &lt;/ul&gt;</div></div><div id="References1" class="guide"><h3 class="title-small">External anchor<a href="#" class="toggle">Toggle source</a></h3><div class="description"><p>Reference to anchor in different section</p>
-</div><div class="preview"><iframe scrolling="no"></iframe></div><div class="source hidden">&lt;ul&gt; &lt;li&gt;list item&lt;/li&gt;
- &lt;li&gt;list item&lt;/li&gt;
- &lt;li&gt;list item&lt;/li&gt;
- &lt;li&gt;list item&lt;/li&gt;
- &lt;/ul&gt;</div></div><hr class="small"></div><textarea class="sourceCss">body {
-  font: 16px Verdana;
+</style></head><body><div class="container"><h1 class="title-large">Styleguide</h1><time class="generated">Generated at Tue Jun 10 2014 16:20:24 GMT+0200 (CEST)</time><hr class="small"><nav class="index"><ul><li>&rsaquo;<a href="#Buttons">Buttons</a><ul><li>&rsaquo;<a href="#Buttons0">Square buttons</a></li><li>&rsaquo;<a href="#Buttons1">Square buttons</a></li><li>&rsaquo;<a href="#Buttons2">Square buttons</a></li></ul></li></ul></nav><hr class="small"><nav class="nav"><ul><li><a href="#Buttons">&rsaquo; Buttons</a></li></ul></nav><div id="Buttons" class="section"><h2 class="title-medium">Buttons</h2><div id="Buttons0" class="guide"><h3 class="title-small">Square buttons<a href="#" class="toggle">Toggle source</a></h3><div class="description"><p>Very pretty square buttons</p>
+</div><div class="preview"><iframe scrolling="no"></iframe></div><div class="source hidden">&lt;p&gt;Im a nested include&lt;/p&gt;</div></div><div id="Buttons1" class="guide"><h3 class="title-small">Square buttons<a href="#" class="toggle">Toggle source</a></h3><div class="description"><p>Very pretty square buttons</p>
+</div><div class="preview"><iframe scrolling="no"></iframe></div><div class="source hidden">&lt;a href=&quot;&quot; class=&quot;btn btn-small&quot;&gt;button&lt;/a&gt; &lt;p&gt;Im a nested include&lt;/p&gt; &lt;a href=&quot;&quot; class=&quot;btn btn-medium&quot;&gt;button&lt;/a&gt; &lt;a href=&quot;&quot; class=&quot;btn btn-large&quot;&gt;button&lt;/a&gt;</div></div><div id="Buttons2" class="guide"><h3 class="title-small">Square buttons<a href="#" class="toggle">Toggle source</a></h3><div class="description"><p>Very pretty square buttons</p>
+</div><div class="preview"><iframe scrolling="no"></iframe></div><div class="source hidden">Test... &lt;p&gt; &lt;a href=&quot;&quot; class=&quot;btn btn-small&quot;&gt;button&lt;/a&gt; &lt;p&gt;Im a nested include&lt;/p&gt; &lt;a href=&quot;&quot; class=&quot;btn btn-medium&quot;&gt;button&lt;/a&gt; &lt;a href=&quot;&quot; class=&quot;btn btn-large&quot;&gt;button&lt;/a&gt; &lt;/p&gt;</div></div><hr class="small"></div><textarea class="sourceCss">/***
+  id: nested
+  title: Square buttons
+  section: Buttons
+  description: Very pretty square buttons
+  example:
+    &lt;p&gt;Im a nested include&lt;/p&gt;
+***/
+
+/***
+  id: simple
+  title: Square buttons
+  section: Buttons
+  description: Very pretty square buttons
+  example:
+    &lt;a href=&quot;&quot; class=&quot;btn btn-small&quot;&gt;button&lt;/a&gt;
+    &lt;include id=&quot;nested&quot;&gt;
+    &lt;a href=&quot;&quot; class=&quot;btn btn-medium&quot;&gt;button&lt;/a&gt;
+    &lt;a href=&quot;&quot; class=&quot;btn btn-large&quot;&gt;button&lt;/a&gt;
+***/
+.btn{
+  display: inline-block;
+  padding: .3em .6em;
+  color: white;
+  text-decoration: none;
+  text-transform: uppercase;
+  background-color: darkslateblue;
 }
-
-/***
-  title: Internal anchor
-  section: References
-  description: Reference to anchor in the same section
+.btn:hover{
+  background-color: #38306E;
+}
+.btn-small{
+  font-size: .8em;
+}
+.btn-medium{
+  font-size: 1em;
+}
+.btn-large{
+  font-size: 1.3em;
+}
+ /***
+  title: Square buttons
+  section: Buttons
+  description: Very pretty square buttons
   example:
-    - &lt;ul&gt;
-    - &amp;li | 
-      &lt;li&gt;list item&lt;/li&gt;
-    - *li
-    - *li
-    - *li
-    - *li
-    - &lt;/ul&gt;
+    Test...
+    &lt;p&gt;
+        &lt;include id=&quot;simple&quot; section=&quot;Buttons&quot; /&gt;
+    &lt;/p&gt;
+
 ***/
-
-
-/***
-  title: External anchor
-  section: References
-  description: Reference to anchor in different section
-  example:
-    - &lt;ul&gt;
-    - *li
-    - *li
-    - *li
-    - *li
-    - &lt;/ul&gt;
-***/
-
+.btn{
+  display: inline-block;
+  padding: .3em .6em;
+  color: white;
+  text-decoration: none;
+  text-transform: uppercase;
+  background-color: darkslateblue;
+}
+.btn:hover{
+  background-color: #38306E;
+}
+.btn-small{
+  font-size: .8em;
+}
+.btn-medium{
+  font-size: 1em;
+}
+.btn-large{
+  font-size: 1.3em;
+}
 </textarea><textarea class="sourceJs"></textarea></div><script>sourceCss = document.querySelector('textarea.sourceCss').textContent;
 sourceJs = document.querySelector('textarea.sourceJs').textContent;
 

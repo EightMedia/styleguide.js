@@ -84,6 +84,16 @@ body {
 }
 
 /***
+  title: Includes
+  section: Includes
+  description: Reference to anchor in the same section
+  example:
+    below is the example code from the Links item in the Buttons section.
+    <include title="Links" section="Buttons">
+***/
+
+
+/***
   title: Internal anchor
   section: References
   description: Reference to anchor in the same section

@@ -107,5 +107,30 @@ exports.styleguide = {
 
         test.equal(actual, expected, 'should be able to use references');
         test.done();
+    },
+
+    includes: function (test) {
+        test.expect(1);
+
+        var sg = new StyleGuide();
+        sg.addFile("test/fixtures/includes/style1.css");
+        sg.addFile("test/fixtures/includes/style2.css");
+        sg.render({
+            outputFile: "test/tmp/includes.html"
+        });
+
+        var actual = readFile('test/tmp/includes.html');
+        var expected = readFile('test/expected/includes.html');
+
+        $ = cheerio.load(expected);
+        $('time').remove();
+        expected = $.html();
+
+        $ = cheerio.load(actual);
+        $('time').remove();
+        actual = $.html();
+
+        test.equal(actual, expected, 'should be able to use includes');
+        test.done();
     }
 };
