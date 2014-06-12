@@ -121,7 +121,7 @@ exports.styleguide = {
 
         var actual = readFile('test/tmp/includes.html');
         var expected = readFile('test/expected/includes.html');
-
+        
         $ = cheerio.load(expected);
         $('time').remove();
         expected = $.html();
@@ -131,6 +131,33 @@ exports.styleguide = {
         actual = $.html();
 
         test.equal(actual, expected, 'should be able to use includes');
+        test.done();
+    },
+
+
+    // test for files with no styleguide available at all
+    missingStyleguide: function (test) {
+        test.expect(1);
+
+        var sg = new StyleGuide();
+        sg.addFile("test/fixtures/missing-styleguide/style1.css");
+        sg.addFile("test/fixtures/missing-styleguide/style2.css");
+        sg.render({
+            outputFile: "test/tmp/missing-styleguide.html"
+        });
+
+        var actual = readFile('test/tmp/missing-styleguide.html');
+        var expected = readFile('test/expected/missing-styleguide.html');
+        
+        $ = cheerio.load(expected);
+        $('time').remove();
+        expected = $.html();
+
+        $ = cheerio.load(actual);
+        $('time').remove();
+        actual = $.html();
+
+        test.equal(actual, expected, 'should not run aground when no styleguide is available');
         test.done();
     }
 };

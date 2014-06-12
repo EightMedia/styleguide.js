@@ -8,7 +8,7 @@ It generates a [self-contained html](https://rawgithub.com/EightMedia/styleguide
 
 
 ### Install
-Styleguide.js runs on node, and is written in coffeescript. Just run `npm install styleguidejs`.
+Styleguide.js runs on node. Just run `npm install styleguidejs`.
 
 
 ### How to use

@@ -1,6 +1,6 @@
 {
   "name": "styleguidejs",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Generate styleguide from your css",
   "main": "main.js",
   "scripts": {
@@ -21,7 +21,7 @@
     "marked": "~0.3.0"
   },
   "devDependencies": {
-    "cheerio": "~0.12.3",
+    "cheerio": "^0.17.0",
     "nodeunit": "^0.9.0"
   }
 }

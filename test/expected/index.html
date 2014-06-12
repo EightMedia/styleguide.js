@@ -233,7 +233,7 @@ hr.small{
 .sourceCss {
   display: none;
 }
-</style></head><body><div class="container"><h1 class="title-large">Styleguide</h1><time class="generated">Generated at Tue Jun 10 2014 16:20:23 GMT+0200 (CEST)</time><hr class="small"><nav class="index"><ul><li>&rsaquo;<a href="#Buttons">Buttons</a><ul><li>&rsaquo;<a href="#Buttons0">Square buttons</a></li><li>&rsaquo;<a href="#Buttons1">Round buttons</a></li><li>&rsaquo;<a href="#Buttons2">Links</a></li></ul></li><li>&rsaquo;<a href="#Typography">Typography</a><ul><li>&rsaquo;<a href="#Typography0">Headings</a></li><li>&rsaquo;<a href="#Typography1">Paragraphs</a></li></ul></li></ul></nav><hr class="small"><nav class="nav"><ul><li><a href="#Buttons">&rsaquo; Buttons</a></li><li><a href="#Typography">&rsaquo; Typography</a></li></ul></nav><div id="Buttons" class="section"><h2 class="title-medium">Buttons</h2><div id="Buttons0" class="guide"><h3 class="title-small">Square buttons<a href="#" class="toggle">Toggle source</a></h3><div class="description"><p>Very pretty square buttons</p>
+</style></head><body><div class="container"><h1 class="title-large">Styleguide</h1><time class="generated">Generated at Thu Jun 12 2014 10:42:20 GMT+0200 (CEST)</time><hr class="small"><nav class="index"><ul><li>&rsaquo;<a href="#Buttons">Buttons</a><ul><li>&rsaquo;<a href="#Buttons0">Square buttons</a></li><li>&rsaquo;<a href="#Buttons1">Round buttons</a></li><li>&rsaquo;<a href="#Buttons2">Links</a></li></ul></li><li>&rsaquo;<a href="#Typography">Typography</a><ul><li>&rsaquo;<a href="#Typography0">Headings</a></li><li>&rsaquo;<a href="#Typography1">Paragraphs</a></li></ul></li></ul></nav><hr class="small"><nav class="nav"><ul><li><a href="#Buttons">&rsaquo; Buttons</a></li><li><a href="#Typography">&rsaquo; Typography</a></li></ul></nav><div id="Buttons" class="section"><h2 class="title-medium">Buttons</h2><div id="Buttons0" class="guide"><h3 class="title-small">Square buttons<a href="#" class="toggle">Toggle source</a></h3><div class="description"><p>Very pretty square buttons</p>
 </div><div class="preview"><iframe scrolling="no"></iframe></div><div class="source hidden">&lt;a href=&quot;&quot; class=&quot;btn btn-small&quot;&gt;button&lt;/a&gt; &lt;a href=&quot;&quot; class=&quot;btn btn-medium&quot;&gt;button&lt;/a&gt; &lt;a href=&quot;&quot; class=&quot;btn btn-large&quot;&gt;button&lt;/a&gt;</div></div><div id="Buttons1" class="guide"><h3 class="title-small">Round buttons<a href="#" class="toggle">Toggle source</a></h3><div class="description"><p>Very pretty rounded buttons</p>
 </div><div class="preview"><iframe scrolling="no"></iframe></div><div class="source hidden">&lt;a href=&quot;&quot; class=&quot;btn btn-small btn-round&quot;&gt;button&lt;/a&gt; &lt;a href=&quot;&quot; class=&quot;btn btn-medium btn-round&quot;&gt;button&lt;/a&gt; &lt;a href=&quot;&quot; class=&quot;btn btn-large btn-round&quot;&gt;button&lt;/a&gt;</div></div><div id="Buttons2" class="guide"><h3 class="title-small">Links<a href="#" class="toggle">Toggle source</a></h3><div class="description"><p>Very pretty rounded buttons</p>
 </div><div class="preview"><iframe scrolling="no"></iframe></div><div class="source hidden">&lt;a href=&quot;&quot; class=&quot;btn-link&quot;&gt;button&lt;/a&gt;</div></div><hr class="small"></div><div id="Typography" class="section"><h2 class="title-medium">Typography</h2><div id="Typography0" class="guide"><h3 class="title-small">Headings<a href="#" class="toggle">Toggle source</a></h3><div class="description"><p>Very pretty headings</p>
@@ -371,7 +371,7 @@ function GuideElement(element) {
     var iframe = element.querySelector('.preview iframe');
 
     if(!source) {
-        return false;
+        return;
     }
 
     var d = iframe.contentWindow.document;
@@ -389,7 +389,6 @@ function GuideElement(element) {
     d.querySelector('head').appendChild(script);
 
     d.close();
-
 
     // toggle link
     element.querySelector("a.toggle").addEventListener("click", function(ev) {

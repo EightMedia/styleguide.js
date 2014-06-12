@@ -1,3 +1,7 @@
+body {
+  font: 16px Verdana;
+}
+
 /***
   id: nested
   title: Square buttons
@@ -18,6 +22,7 @@
     <a href="" class="btn btn-medium">button</a>
     <a href="" class="btn btn-large">button</a>
 ***/
+
 .btn{
   display: inline-block;
   padding: .3em .6em;
@@ -38,3 +43,12 @@
 .btn-large{
   font-size: 1.3em;
 }
+
+
+/***
+  title: Missing include
+  section: Buttons
+  description: No example available
+  example:
+    <include id="missing-include">
+***/

@@ -233,10 +233,15 @@ hr.small{
 .sourceCss {
   display: none;
 }
-</style></head><body><div class="container"><h1 class="title-large">Styleguide</h1><time class="generated">Generated at Tue Jun 10 2014 16:20:24 GMT+0200 (CEST)</time><hr class="small"><nav class="index"><ul><li>&rsaquo;<a href="#Buttons">Buttons</a><ul><li>&rsaquo;<a href="#Buttons0">Square buttons</a></li><li>&rsaquo;<a href="#Buttons1">Square buttons</a></li><li>&rsaquo;<a href="#Buttons2">Square buttons</a></li></ul></li></ul></nav><hr class="small"><nav class="nav"><ul><li><a href="#Buttons">&rsaquo; Buttons</a></li></ul></nav><div id="Buttons" class="section"><h2 class="title-medium">Buttons</h2><div id="Buttons0" class="guide"><h3 class="title-small">Square buttons<a href="#" class="toggle">Toggle source</a></h3><div class="description"><p>Very pretty square buttons</p>
+</style></head><body><div class="container"><h1 class="title-large">Styleguide</h1><time class="generated">Generated at Thu Jun 12 2014 10:57:29 GMT+0200 (CEST)</time><hr class="small"><nav class="index"><ul><li>&rsaquo;<a href="#Buttons">Buttons</a><ul><li>&rsaquo;<a href="#Buttons0">Square buttons</a></li><li>&rsaquo;<a href="#Buttons1">Square buttons</a></li><li>&rsaquo;<a href="#Buttons2">Missing include</a></li><li>&rsaquo;<a href="#Buttons3">Square buttons</a></li></ul></li></ul></nav><hr class="small"><nav class="nav"><ul><li><a href="#Buttons">&rsaquo; Buttons</a></li></ul></nav><div id="Buttons" class="section"><h2 class="title-medium">Buttons</h2><div id="Buttons0" class="guide"><h3 class="title-small">Square buttons<a href="#" class="toggle">Toggle source</a></h3><div class="description"><p>Very pretty square buttons</p>
 </div><div class="preview"><iframe scrolling="no"></iframe></div><div class="source hidden">&lt;p&gt;Im a nested include&lt;/p&gt;</div></div><div id="Buttons1" class="guide"><h3 class="title-small">Square buttons<a href="#" class="toggle">Toggle source</a></h3><div class="description"><p>Very pretty square buttons</p>
-</div><div class="preview"><iframe scrolling="no"></iframe></div><div class="source hidden">&lt;a href=&quot;&quot; class=&quot;btn btn-small&quot;&gt;button&lt;/a&gt; &lt;p&gt;Im a nested include&lt;/p&gt; &lt;a href=&quot;&quot; class=&quot;btn btn-medium&quot;&gt;button&lt;/a&gt; &lt;a href=&quot;&quot; class=&quot;btn btn-large&quot;&gt;button&lt;/a&gt;</div></div><div id="Buttons2" class="guide"><h3 class="title-small">Square buttons<a href="#" class="toggle">Toggle source</a></h3><div class="description"><p>Very pretty square buttons</p>
-</div><div class="preview"><iframe scrolling="no"></iframe></div><div class="source hidden">Test... &lt;p&gt; &lt;a href=&quot;&quot; class=&quot;btn btn-small&quot;&gt;button&lt;/a&gt; &lt;p&gt;Im a nested include&lt;/p&gt; &lt;a href=&quot;&quot; class=&quot;btn btn-medium&quot;&gt;button&lt;/a&gt; &lt;a href=&quot;&quot; class=&quot;btn btn-large&quot;&gt;button&lt;/a&gt; &lt;/p&gt;</div></div><hr class="small"></div><textarea class="sourceCss">/***
+</div><div class="preview"><iframe scrolling="no"></iframe></div><div class="source hidden">&lt;a href=&quot;&quot; class=&quot;btn btn-small&quot;&gt;button&lt;/a&gt; &lt;p&gt;Im a nested include&lt;/p&gt; &lt;a href=&quot;&quot; class=&quot;btn btn-medium&quot;&gt;button&lt;/a&gt; &lt;a href=&quot;&quot; class=&quot;btn btn-large&quot;&gt;button&lt;/a&gt;</div></div><div id="Buttons2" class="guide"><h3 class="title-small">Missing include<a href="#" class="toggle">Toggle source</a></h3><div class="description"><p>No example available</p>
+</div></div><div id="Buttons3" class="guide"><h3 class="title-small">Square buttons<a href="#" class="toggle">Toggle source</a></h3><div class="description"><p>Very pretty square buttons</p>
+</div><div class="preview"><iframe scrolling="no"></iframe></div><div class="source hidden">Test... &lt;p&gt; &lt;a href=&quot;&quot; class=&quot;btn btn-small&quot;&gt;button&lt;/a&gt; &lt;p&gt;Im a nested include&lt;/p&gt; &lt;a href=&quot;&quot; class=&quot;btn btn-medium&quot;&gt;button&lt;/a&gt; &lt;a href=&quot;&quot; class=&quot;btn btn-large&quot;&gt;button&lt;/a&gt; &lt;/p&gt;</div></div><hr class="small"></div><textarea class="sourceCss">body {
+  font: 16px Verdana;
+}
+
+/***
   id: nested
   title: Square buttons
   section: Buttons
@@ -256,6 +261,7 @@ hr.small{
     &lt;a href=&quot;&quot; class=&quot;btn btn-medium&quot;&gt;button&lt;/a&gt;
     &lt;a href=&quot;&quot; class=&quot;btn btn-large&quot;&gt;button&lt;/a&gt;
 ***/
+
 .btn{
   display: inline-block;
   padding: .3em .6em;
@@ -276,7 +282,15 @@ hr.small{
 .btn-large{
   font-size: 1.3em;
 }
- /***
+
+
+/***
+  title: Missing include
+  section: Buttons
+  description: No example available
+  example:
+    &lt;include id=&quot;missing-include&quot;&gt;
+***/ /***
   title: Square buttons
   section: Buttons
   description: Very pretty square buttons
@@ -319,7 +333,7 @@ function GuideElement(element) {
     var iframe = element.querySelector('.preview iframe');
 
     if(!source) {
-        return false;
+        return;
     }
 
     var d = iframe.contentWindow.document;
@@ -337,7 +351,6 @@ function GuideElement(element) {
     d.querySelector('head').appendChild(script);
 
     d.close();
-
 
     // toggle link
     element.querySelector("a.toggle").addEventListener("click", function(ev) {
