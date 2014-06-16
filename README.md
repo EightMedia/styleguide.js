@@ -13,7 +13,7 @@ Styleguide.js runs on node. Just run `npm install styleguidejs`.
 
 ### How to use
 You can add comments to your css. When it has three asterisks, it will be parsed as YAML data.
-The properties `title`, `section` and `example` are required by the default template, but when using your own you can add all the things you would like. (like browser support, media query etc...). Example can be a string or an array.
+The properties `title`, `section` and `example` are required by the default template, but when using your own template you can add all the things you would like. (like browser support, media query etc...). Example can be a string or an array.
 
 ````css
 body {
@@ -70,6 +70,7 @@ body {
 /***
   title: Links
   section: Buttons
+  id: btn-link
   description: Very pretty rounded buttons
   example:
     <a href="" class="btn-link">button</a>
@@ -91,31 +92,13 @@ body {
     <div class="btn-group">
         <include title="Links" section="Buttons">
         <include title="Links" section="Buttons">
+        <include id="btn-link">
     </div>
 ***/
 .btn-group .btn-link {
     background: green;
 }
 
-
-/***
-  title: Internal anchor
-  section: References
-  description: Reference to anchor in the same section
-  example:
-    - <ul>
-    - &li |
-      <li>list item</li>
-    - *li
-    - *li
-    - *li
-    - *li
-    - </ul>
-***/
-
-li{
-  color: darkslateblue;
-}
 ````
 
 ````js
@@ -131,6 +114,21 @@ sg.render({
 
 See /test for a demo implementation, and demo export file (index.html). You can add your own properties in the Yaml data,
 and parse them in your custom template.
+
+### Customize look and feel
+Feel free to use your own look and feel. Include your own css, js or use your own Jade-template.
+
+````js
+var StyleGuide = require('styleguidejs');
+var sg = new StyleGuide();
+sg.addFile("mystyle.css");
+sg.render({
+    outputCss: "styleguide/style.css",
+    outputJs: "styleguide/script.js",
+    outputTemplate: "styleguide/template.jade",
+    outputFile: "test/index.html"
+});
+````
 
 
 ### Grunt task

@@ -35,18 +35,18 @@ exports.styleguide = {
         test.done();
     },
 
-    customCss: function (test) {
+    extraCss: function (test) {
         test.expect(1);
 
         var sg = new StyleGuide();
         sg.addFile("test/fixtures/default/style.css");
         sg.render({
-            extraCss: ["test/fixtures/custom-css/styleguide.css"],
-            outputFile: "test/tmp/custom-css.html"
+            extraCss: ["test/fixtures/extra-css/style1.css"],
+            outputFile: "test/tmp/extra-css.html"
         });
 
-        var actual = readFile('test/tmp/custom-css.html');
-        var expected = readFile('test/expected/custom-css.html');
+        var actual = readFile('test/tmp/extra-css.html');
+        var expected = readFile('test/expected/extra-css.html');
 
         $ = cheerio.load(expected);
         $('time').remove();
@@ -60,18 +60,21 @@ exports.styleguide = {
         test.done();
     },
 
-    appendCss: function (test) {
+    // change look and feel of the styleguide itself
+    output: function (test) {
         test.expect(1);
 
         var sg = new StyleGuide();
         sg.addFile("test/fixtures/default/style.css");
         sg.render({
-            extraCss: ["test/fixtures/custom-css/styleguide.css"],
-            outputFile: "test/tmp/append-custom-css.html"
+            outputCss: "test/fixtures/output/style.css",
+            outputJs: "test/fixtures/output/script.js",
+            outputTemplate: "test/fixtures/output/index.jade",
+            outputFile: "test/tmp/output.html"
         });
 
-        var actual = readFile('test/tmp/append-custom-css.html');
-        var expected = readFile('test/expected/append-custom-css.html');
+        var actual = readFile('test/tmp/output.html');
+        var expected = readFile('test/expected/output.html');
 
         $ = cheerio.load(expected);
         $('time').remove();
@@ -81,7 +84,7 @@ exports.styleguide = {
         $('time').remove();
         actual = $.html();
 
-        test.equal(actual, expected, 'should be able to append custom css');
+        test.equal(actual, expected, 'should be able to use styles for the styleguide itself');
         test.done();
     },
 
