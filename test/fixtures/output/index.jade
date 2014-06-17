@@ -1,0 +1,41 @@
+doctype html
+html
+  head
+    meta(charset="utf-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+
+    title Styleguide
+
+    style
+      |!{ outputCss }
+  body
+    .container
+      h1.title-large Custom styleguide
+
+      for elements, section in docs
+        .section(id=section)
+          h2.title-medium= section
+          for element, i in elements
+            .guide(id="#{section.replace(/[^a-z0-9]/ig,'')}#{i}")
+              h3.title-small= element.title
+                a.toggle(href="#") Toggle source
+
+              if element.description
+                .description !{marked(element.description)}
+
+              if element.example
+                .preview
+                  iframe(scrolling="no")
+
+                if Array.isArray(element.example)
+                  .source.hidden= element.example.join(' ').trim()
+                else
+                  .source.hidden= element.example.trim()
+
+          hr.small
+
+      textarea.sourceCss= css
+      textarea.sourceJs= js
+
+    script
+      |!{ outputJs }

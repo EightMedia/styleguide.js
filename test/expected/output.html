@@ -1,0 +1,129 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Styleguide</title><style>body{
+  background: red;
+}</style></head><body><div class="container"><h1 class="title-large">Custom styleguide</h1><div id="Buttons" class="section"><h2 class="title-medium">Buttons</h2><div id="Buttons0" class="guide"><h3 class="title-small">Square buttons<a href="#" class="toggle">Toggle source</a></h3><div class="description"><p>Very pretty square buttons</p>
+</div><div class="preview"><iframe scrolling="no"></iframe></div><div class="source hidden">&lt;a href=&quot;&quot; class=&quot;btn btn-small&quot;&gt;button&lt;/a&gt; &lt;a href=&quot;&quot; class=&quot;btn btn-medium&quot;&gt;button&lt;/a&gt; &lt;a href=&quot;&quot; class=&quot;btn btn-large&quot;&gt;button&lt;/a&gt;</div></div><div id="Buttons1" class="guide"><h3 class="title-small">Round buttons<a href="#" class="toggle">Toggle source</a></h3><div class="description"><p>Very pretty rounded buttons</p>
+</div><div class="preview"><iframe scrolling="no"></iframe></div><div class="source hidden">&lt;a href=&quot;&quot; class=&quot;btn btn-small btn-round&quot;&gt;button&lt;/a&gt; &lt;a href=&quot;&quot; class=&quot;btn btn-medium btn-round&quot;&gt;button&lt;/a&gt; &lt;a href=&quot;&quot; class=&quot;btn btn-large btn-round&quot;&gt;button&lt;/a&gt;</div></div><div id="Buttons2" class="guide"><h3 class="title-small">Links<a href="#" class="toggle">Toggle source</a></h3><div class="description"><p>Very pretty rounded buttons</p>
+</div><div class="preview"><iframe scrolling="no"></iframe></div><div class="source hidden">&lt;a href=&quot;&quot; class=&quot;btn-link&quot;&gt;button&lt;/a&gt;</div></div><hr class="small"></div><div id="Typography" class="section"><h2 class="title-medium">Typography</h2><div id="Typography0" class="guide"><h3 class="title-small">Headings<a href="#" class="toggle">Toggle source</a></h3><div class="description"><p>Very pretty headings</p>
+</div><div class="preview"><iframe scrolling="no"></iframe></div><div class="source hidden">&lt;h1 class=&quot;title-large&quot;&gt;Heading&lt;/h1&gt; &lt;h1 class=&quot;title-medium&quot;&gt;Heading&lt;/h1&gt; &lt;h1 class=&quot;title-small&quot;&gt;Heading&lt;/h1&gt;</div></div><div id="Typography1" class="guide"><h3 class="title-small">Paragraphs<a href="#" class="toggle">Toggle source</a></h3><div class="description"><p>Very pretty paragraphs</p>
+</div><div class="preview"><iframe scrolling="no"></iframe></div><div class="source hidden">&lt;p class=&quot;p-large&quot;&gt;Mutley, you snickering, floppy eared hound. When courage is needed, you're never around. Those medals you wear on your moth-eaten chest should be there for bungling at which you are best. So, stop that pigeon, stop that pigeon, stop that pigeon, stop that pigeon, stop that pigeon, stop that pigeon, stop that pigeon. Howwww! Nab him, jab him, tab him, grab him, stop that pigeon now.&lt;/p&gt; &lt;p class=&quot;p-medium&quot;&gt;Ten years ago a crack commando unit was sent to prison by a military court for a crime they didn't commit. These men promptly escaped from a maximum security stockade to the Los Angeles underground. Today, still wanted by the government, they survive as soldiers of fortune. If you have a problem and no one else can help, and if you can find them, maybe you can hire the A-team.&lt;/p&gt; &lt;p class=&quot;p-small&quot;&gt;There's a voice that keeps on calling me. Down the road, that's where I'll always be. Every stop I make, I make a new friend. Can't stay for long, just turn around and I'm gone again. Maybe tomorrow, I'll want to settle down, Until tomorrow, I'll just keep moving on.&lt;/p&gt;</div></div><hr class="small"></div><textarea class="sourceCss">body {
+  font: 16px Verdana;
+}
+
+/***
+  title: Square buttons
+  section: Buttons
+  description: Very pretty square buttons
+  example:
+    &lt;a href=&quot;&quot; class=&quot;btn btn-small&quot;&gt;button&lt;/a&gt;
+    &lt;a href=&quot;&quot; class=&quot;btn btn-medium&quot;&gt;button&lt;/a&gt;
+    &lt;a href=&quot;&quot; class=&quot;btn btn-large&quot;&gt;button&lt;/a&gt;
+***/
+
+.btn{
+  display: inline-block;
+  padding: .3em .6em;
+  color: white;
+  text-decoration: none;
+  text-transform: uppercase;
+  background-color: darkslateblue;
+}
+.btn:hover{
+  background-color: #38306E;
+}
+.btn-small{
+  font-size: .8em;
+}
+.btn-medium{
+  font-size: 1em;
+}
+.btn-large{
+  font-size: 1.3em;
+}
+
+
+/***
+  title: Round buttons
+  section: Buttons
+  description: Very pretty rounded buttons
+  example:
+    &lt;a href=&quot;&quot; class=&quot;btn btn-small btn-round&quot;&gt;button&lt;/a&gt;
+    &lt;a href=&quot;&quot; class=&quot;btn btn-medium btn-round&quot;&gt;button&lt;/a&gt;
+    &lt;a href=&quot;&quot; class=&quot;btn btn-large btn-round&quot;&gt;button&lt;/a&gt;
+***/
+
+.btn-round{
+  border-radius: 20px;
+}
+
+
+/***
+  title: Links
+  section: Buttons
+  description: Very pretty rounded buttons
+  example:
+    &lt;a href=&quot;&quot; class=&quot;btn-link&quot;&gt;button&lt;/a&gt;
+***/
+
+.btn-link{
+  background: none;
+  color: darkslateblue;
+}
+.btn-link:hover{
+  text-decoration: none;
+}
+
+
+
+/***
+  title: Headings
+  section: Typography
+  description: Very pretty headings
+  example:
+    &lt;h1 class=&quot;title-large&quot;&gt;Heading&lt;/h1&gt;
+    &lt;h1 class=&quot;title-medium&quot;&gt;Heading&lt;/h1&gt;
+    &lt;h1 class=&quot;title-small&quot;&gt;Heading&lt;/h1&gt;
+***/
+
+h1, h2, h3, h4, h5{
+  margin: 0 0 .5em 0;
+  font-size: 1em;
+  line-height: 1;
+  font-weight: bold;
+}
+.title-large{
+  font-size: 1.8em;
+}
+.title-medium{
+  font-size: 1.4em;
+}
+.title-small{
+  font-size: 1.1em;
+}
+
+
+/***
+  title: Paragraphs
+  section: Typography
+  description: Very pretty paragraphs
+  example:
+    &lt;p class=&quot;p-large&quot;&gt;Mutley, you snickering, floppy eared hound. When courage is needed, you're never around. Those medals you wear on your moth-eaten chest should be there for bungling at which you are best. So, stop that pigeon, stop that pigeon, stop that pigeon, stop that pigeon, stop that pigeon, stop that pigeon, stop that pigeon. Howwww! Nab him, jab him, tab him, grab him, stop that pigeon now.&lt;/p&gt;
+    &lt;p class=&quot;p-medium&quot;&gt;Ten years ago a crack commando unit was sent to prison by a military court for a crime they didn't commit. These men promptly escaped from a maximum security stockade to the Los Angeles underground. Today, still wanted by the government, they survive as soldiers of fortune. If you have a problem and no one else can help, and if you can find them, maybe you can hire the A-team.&lt;/p&gt;
+    &lt;p class=&quot;p-small&quot;&gt;There's a voice that keeps on calling me. Down the road, that's where I'll always be. Every stop I make, I make a new friend. Can't stay for long, just turn around and I'm gone again. Maybe tomorrow, I'll want to settle down, Until tomorrow, I'll just keep moving on.&lt;/p&gt;
+***/
+
+
+.p-large{
+  font-size: 1.1em;
+  line-height: 1.3;
+}
+
+.p-medium{
+  font-size: .9em;
+  line-height: 1.5;
+}
+
+.p-small{
+  font-size: .6em;
+  line-height: 1.5;
+}
+</textarea><textarea class="sourceJs"></textarea></div><script>alert('custom js')</script></body></html>
