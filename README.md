@@ -123,9 +123,9 @@ var StyleGuide = require('styleguidejs');
 var sg = new StyleGuide();
 sg.addFile("mystyle.css");
 sg.render({
-    outputCss: "styleguide/style.css",
-    outputJs: "styleguide/script.js",
-    outputTemplate: "styleguide/template.jade",
+    templateCss: "styleguide/style.css",
+    templateJs: "styleguide/script.js",
+    template: "styleguide/template.jade",
     outputFile: "test/index.html"
 });
 ````
