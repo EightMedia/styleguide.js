@@ -61,20 +61,20 @@ exports.styleguide = {
     },
 
     // change look and feel of the styleguide itself
-    output: function (test) {
+    template: function (test) {
         test.expect(1);
 
         var sg = new StyleGuide();
         sg.addFile("test/fixtures/default/style.css");
         sg.render({
-            outputCss: "test/fixtures/output/style.css",
-            outputJs: "test/fixtures/output/script.js",
-            outputTemplate: "test/fixtures/output/index.jade",
-            outputFile: "test/tmp/output.html"
+            template: "test/fixtures/template/index.jade",
+            templateCss: "test/fixtures/template/style.css",
+            templateJs: "test/fixtures/template/script.js",
+            outputFile: "test/tmp/template.html"
         });
 
-        var actual = readFile('test/tmp/output.html');
-        var expected = readFile('test/expected/output.html');
+        var actual = readFile('test/tmp/template.html');
+        var expected = readFile('test/expected/template.html');
 
         $ = cheerio.load(expected);
         $('time').remove();
@@ -124,7 +124,7 @@ exports.styleguide = {
 
         var actual = readFile('test/tmp/includes.html');
         var expected = readFile('test/expected/includes.html');
-        
+
         $ = cheerio.load(expected);
         $('time').remove();
         expected = $.html();
@@ -151,7 +151,7 @@ exports.styleguide = {
 
         var actual = readFile('test/tmp/missing-styleguide.html');
         var expected = readFile('test/expected/missing-styleguide.html');
-        
+
         $ = cheerio.load(expected);
         $('time').remove();
         expected = $.html();
