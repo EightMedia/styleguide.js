@@ -1,6 +1,6 @@
 {
   "name": "styleguidejs",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Generate styleguide from your css",
   "main": "main.js",
   "scripts": {
