@@ -15,37 +15,20 @@ html
 
       hr.small
 
-      nav.index
-        ul
-          for elements, section in docs
-            li
-              | &rsaquo;
-              a(href="##{section}")= section
-
-              ul
-                for element, i in elements
-                  li
-                    | &rsaquo;
-                    a(href="##{section.replace(/[^a-z0-9]/ig,'')}#{i}")= element.title
-
-
-      hr.small
-
       nav.nav
         ul
           for elements, section in docs
             li
-              a(href="##{section}")
-                | &rsaquo; #{section}
+              a(href="##{section.replace(/[^a-z0-9]/ig,'')}") #{section}
 
 
       for elements, section in docs
-        .section(id=section)
+        .section(id=section.replace(/[^a-z0-9]/ig,''))
           h2.title-medium= section
           for element, i in elements
-            .guide(id="#{section.replace(/[^a-z0-9]/ig,'')}#{i}")
+            .guide
               h3.title-small= element.title
-                a.toggle(href="#") Toggle source
+                a.toggle(href="javascript:void(null)") Toggle source
 
               if element.description
                 .description !{marked(element.description)}
@@ -60,6 +43,15 @@ html
                   .source.hidden= element.example.trim()
 
           hr.small
+
+      nav.index
+        ul
+          for elements, section in docs
+            li
+              a(href="##{section.replace(/[^a-z0-9]/ig,'')}") #{section}
+              ul
+                for element, i in elements
+                  li #{element.title}
 
       textarea.sourceCss= css
       textarea.sourceJs= js
