@@ -24,7 +24,7 @@ body {
   title: Square buttons
   section: Buttons
   description: Very pretty square buttons
-  example:
+  example: |
     <a href="" class="btn btn-small">button</a>
     <a href="" class="btn btn-medium">button</a>
     <a href="" class="btn btn-large">button</a>
@@ -56,7 +56,7 @@ body {
   title: Round buttons
   section: Buttons
   description: Very pretty rounded buttons
-  example:
+  example: |
     <a href="" class="btn btn-small btn-round">button</a>
     <a href="" class="btn btn-medium btn-round">button</a>
     <a href="" class="btn btn-large btn-round">button</a>
@@ -88,7 +88,7 @@ body {
   title: Includes
   section: Includes
   description: Include example code from other items. You can refer to any attribute(set), like 'id'
-  example:
+  example: |
     <div class="btn-group">
         <include title="Links" section="Buttons">
         <include title="Links" section="Buttons">
