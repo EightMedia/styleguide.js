@@ -15,7 +15,9 @@
   "dependencies": {
     "consolidate": "*",
     "css-parse": "*",
+    "highlight.js": "^8.1.0",
     "jade": "~1.1.4",
+    "js-beautify": "^1.5.1",
     "js-yaml": "*",
     "lodash": "^2.4.1",
     "marked": "~0.3.0"

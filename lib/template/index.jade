@@ -37,10 +37,11 @@ html
                 .preview
                   iframe(scrolling="no")
 
-                if Array.isArray(element.example)
-                  .source.hidden= element.example.join(' ').trim()
-                else
-                  .source.hidden= element.example.trim()
+                .source.hidden
+                  if Array.isArray(element.example)
+                    | !{element.example.join(' ').trim()}
+                  else
+                    | !{element.example.trim()}
 
           hr.small
 
