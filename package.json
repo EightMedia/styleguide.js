@@ -13,7 +13,7 @@
   "author": "Eight Media",
   "license": "MIT",
   "dependencies": {
-    "consolidate": "*",
+    "consolidate": "~0.10.0",
     "css-parse": "*",
     "highlight.js": "^8.1.0",
     "jade": "~1.1.4",
