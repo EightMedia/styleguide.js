@@ -200,29 +200,16 @@ hr.small {
     border: none;
     margin: 0;
     background: #fff;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    -ms-border-radius: 3px;
-    -o-border-radius: 3px;
-    border-radius: 3px;
-    -webkit-box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.15);
-    -moz-box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.15);
-    box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.15);
-    border: solid 1px #c9c9c9;
 }
 
 .guide .source {
     min-height: 60px;
     font-size: 12px;
     line-height: 17px;
-    font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
-    color: green;
     background-color: #f7f7f9;
-    border: 1px solid #e1e1e8;
-    border-radius: 5px;
-    padding: 20px;
     white-space: pre;
     overflow: auto;
+    font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
 }
 
 /* misc */
@@ -230,11 +217,151 @@ hr.small {
 .sourceCss {
     display: none;
 }
-</style></head><body><div class="container"><h1 class="title-large">Styleguide</h1><time class="generated">Generated at Wed Jun 25 2014 16:17:12 GMT+0200 (CEST)</time><hr class="small"><nav class="nav"><ul><li><a href="#Buttons">Buttons</a></li></ul></nav><div id="Buttons" class="section"><h2 class="title-medium">Buttons</h2><div class="guide"><h3 class="title-small">Missing include<a href="javascript:void(null)" class="toggle">Toggle source</a></h3><div class="description"><p>No example available</p>
+
+
+/* highlight js */
+/* theme: github */
+/*
+
+github.com style (c) Vasily Polovnyov <vast@whiteants.net>
+
+*/
+
+.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  color: #333;
+  background: #f8f8f8;
+}
+
+.hljs-comment,
+.hljs-template_comment,
+.diff .hljs-header,
+.hljs-javadoc {
+  color: #998;
+  font-style: italic;
+}
+
+.hljs-keyword,
+.css .rule .hljs-keyword,
+.hljs-winutils,
+.javascript .hljs-title,
+.nginx .hljs-title,
+.hljs-subst,
+.hljs-request,
+.hljs-status {
+  color: #333;
+  font-weight: bold;
+}
+
+.hljs-number,
+.hljs-hexcolor,
+.ruby .hljs-constant {
+  color: #099;
+}
+
+.hljs-string,
+.hljs-tag .hljs-value,
+.hljs-phpdoc,
+.tex .hljs-formula {
+  color: #d14;
+}
+
+.hljs-title,
+.hljs-id,
+.coffeescript .hljs-params,
+.scss .hljs-preprocessor {
+  color: #900;
+  font-weight: bold;
+}
+
+.javascript .hljs-title,
+.lisp .hljs-title,
+.clojure .hljs-title,
+.hljs-subst {
+  font-weight: normal;
+}
+
+.hljs-class .hljs-title,
+.haskell .hljs-type,
+.vhdl .hljs-literal,
+.tex .hljs-command {
+  color: #458;
+  font-weight: bold;
+}
+
+.hljs-tag,
+.hljs-tag .hljs-title,
+.hljs-rules .hljs-property,
+.django .hljs-tag .hljs-keyword {
+  color: #000080;
+  font-weight: normal;
+}
+
+.hljs-attribute,
+.hljs-variable,
+.lisp .hljs-body {
+  color: #008080;
+}
+
+.hljs-regexp {
+  color: #009926;
+}
+
+.hljs-symbol,
+.ruby .hljs-symbol .hljs-string,
+.lisp .hljs-keyword,
+.tex .hljs-special,
+.hljs-prompt {
+  color: #990073;
+}
+
+.hljs-built_in,
+.lisp .hljs-title,
+.clojure .hljs-built_in {
+  color: #0086b3;
+}
+
+.hljs-preprocessor,
+.hljs-pragma,
+.hljs-pi,
+.hljs-doctype,
+.hljs-shebang,
+.hljs-cdata {
+  color: #999;
+  font-weight: bold;
+}
+
+.hljs-deletion {
+  background: #fdd;
+}
+
+.hljs-addition {
+  background: #dfd;
+}
+
+.diff .hljs-change {
+  background: #0086b3;
+}
+
+.hljs-chunk {
+  color: #aaa;
+}
+</style></head><body><div class="container"><h1 class="title-large">Styleguide</h1><time class="generated">Generated at Thu Feb 19 2015 08:16:23 GMT+0100 (CET)</time><hr class="small"><nav class="nav"><ul><li><a href="#Buttons">Buttons</a></li></ul></nav><div id="Buttons" class="section"><h2 class="title-medium">Buttons</h2><div class="guide"><h3 class="title-small">Missing include<a href="javascript:void(null)" class="toggle">Toggle source</a></h3><div class="description"><p>No example available</p>
 </div></div><div class="guide"><h3 class="title-small">Square buttons<a href="javascript:void(null)" class="toggle">Toggle source</a></h3><div class="description"><p>Very pretty square buttons</p>
-</div><div class="preview"><iframe scrolling="no"></iframe></div><div class="source hidden">&lt;p&gt;Im a nested include&lt;/p&gt;</div></div><div class="guide"><h3 class="title-small">Square buttons<a href="javascript:void(null)" class="toggle">Toggle source</a></h3><div class="description"><p>Very pretty square buttons</p>
-</div><div class="preview"><iframe scrolling="no"></iframe></div><div class="source hidden">&lt;a href=&quot;&quot; class=&quot;btn btn-small&quot;&gt;button&lt;/a&gt; &lt;p&gt;Im a nested include&lt;/p&gt; &lt;a href=&quot;&quot; class=&quot;btn btn-medium&quot;&gt;button&lt;/a&gt; &lt;a href=&quot;&quot; class=&quot;btn btn-large&quot;&gt;button&lt;/a&gt;</div></div><div class="guide"><h3 class="title-small">Square buttons<a href="javascript:void(null)" class="toggle">Toggle source</a></h3><div class="description"><p>Very pretty square buttons</p>
-</div><div class="preview"><iframe scrolling="no"></iframe></div><div class="source hidden">Test... &lt;p&gt; &lt;a href=&quot;&quot; class=&quot;btn btn-small&quot;&gt;button&lt;/a&gt; &lt;p&gt;Im a nested include&lt;/p&gt; &lt;a href=&quot;&quot; class=&quot;btn btn-medium&quot;&gt;button&lt;/a&gt; &lt;a href=&quot;&quot; class=&quot;btn btn-large&quot;&gt;button&lt;/a&gt; &lt;/p&gt;</div></div><hr class="small"></div><nav class="index"><ul><li><a href="#Buttons">Buttons</a><ul><li>Missing include</li><li>Square buttons</li><li>Square buttons</li><li>Square buttons</li></ul></li></ul></nav><textarea class="sourceCss">body {
+</div><div class="preview"><iframe scrolling="no"></iframe></div><div class="source hidden"><span class="hljs-tag">&lt;<span class="hljs-title">p</span>&gt;</span>Im a nested include<span class="hljs-tag">&lt;/<span class="hljs-title">p</span>&gt;</span></div></div><div class="guide"><h3 class="title-small">Square buttons<a href="javascript:void(null)" class="toggle">Toggle source</a></h3><div class="description"><p>Very pretty square buttons</p>
+</div><div class="preview"><iframe scrolling="no"></iframe></div><div class="source hidden"><span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">""</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"btn btn-small"</span>&gt;</span>button<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">p</span>&gt;</span>Im a nested include<span class="hljs-tag">&lt;/<span class="hljs-title">p</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">""</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"btn btn-medium"</span>&gt;</span>button<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">""</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"btn btn-large"</span>&gt;</span>button<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span></div></div><div class="guide"><h3 class="title-small">Square buttons<a href="javascript:void(null)" class="toggle">Toggle source</a></h3><div class="description"><p>Very pretty square buttons</p>
+</div><div class="preview"><iframe scrolling="no"></iframe></div><div class="source hidden">Test...
+<span class="hljs-tag">&lt;<span class="hljs-title">p</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">""</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"btn btn-small"</span>&gt;</span>button<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">p</span>&gt;</span>Im a nested include<span class="hljs-tag">&lt;/<span class="hljs-title">p</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">""</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"btn btn-medium"</span>&gt;</span>button<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">""</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"btn btn-large"</span>&gt;</span>button<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">p</span>&gt;</span></div></div><hr class="small"></div><nav class="index"><ul><li><a href="#Buttons">Buttons</a><ul><li>Missing include</li><li>Square buttons</li><li>Square buttons</li><li>Square buttons</li></ul></li></ul></nav><textarea class="sourceCss">body {
   font: 16px Verdana;
 }
 
@@ -396,10 +523,12 @@ function scaleIframes() {
 }
 
 
+window.addEventListener('hashchange', loadVisibleGuides);
 window.addEventListener('load', function() {
-    loadVisibleGuides();
-    setInterval(scaleIframes, 500);
+    setTimeout(function() {
+        loadVisibleGuides();
+        setInterval(scaleIframes, 500);
+    }, 100)
 }, false);
 
-window.addEventListener('hashchange', loadVisibleGuides);
 </script></body></html>
