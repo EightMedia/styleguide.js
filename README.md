@@ -154,6 +154,7 @@ When using includes you can use template strings inside your example. Use `{attr
   title: Override classnames
   section: Whatever
   id: includeId
+  visible: false
   example:
     <div class="{templateVars}">
       {templateVars}
