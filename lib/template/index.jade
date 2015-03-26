@@ -26,22 +26,23 @@ html
         .section(id=section.replace(/[^a-z0-9]/ig,''))
           h2.title-medium= section
           for element, i in elements
-            .guide
-              h3.title-small= element.title
-                a.toggle(href="javascript:void(null)") Toggle source
+            if element.visible != 'false'
+              .guide
+                h3.title-small= element.title
+                  a.toggle(href="javascript:void(null)") Toggle source
 
-              if element.description
-                .description !{marked(element.description)}
+                if element.description
+                  .description !{marked(element.description)}
 
-              if element.example
-                .preview
-                  iframe(scrolling="no")
+                if element.example
+                  .preview
+                    iframe(scrolling="no")
 
-                .source.hidden
-                  if Array.isArray(element.example)
-                    | !{element.example.join(' ').trim()}
-                  else
-                    | !{element.example.trim()}
+                  .source.hidden
+                    if Array.isArray(element.example)
+                      | !{element.example.join(' ').trim()}
+                    else
+                      | !{element.example.trim()}
 
           hr.small
 
@@ -52,7 +53,8 @@ html
               a(href="##{section.replace(/[^a-z0-9]/ig,'')}") #{section}
               ul
                 for element, i in elements
-                  li #{element.title}
+                  if element.visible != 'false'
+                    li #{element.title}
 
       textarea.sourceCss= css
       textarea.sourceJs= js

@@ -137,6 +137,30 @@ exports.styleguide = {
         test.done();
     },
 
+    attributes: function (test) {
+        test.expect(1);
+
+        var sg = new StyleGuide();
+        sg.addFile("test/fixtures/attributes/style.css");
+        sg.render({
+            outputFile: "test/tmp/attributes.html"
+        });
+
+        var actual = readFile('test/tmp/attributes.html');
+        var expected = readFile('test/expected/attributes.html');
+
+        $ = cheerio.load(expected);
+        $('time').remove();
+        expected = $.html();
+
+        $ = cheerio.load(actual);
+        $('time').remove();
+        actual = $.html();
+
+        test.equal(actual, expected, 'should be able to use custom yaml attributes');
+        test.done();
+    },
+
 
     // test for files with no styleguide available at all
     missingStyleguide: function (test) {

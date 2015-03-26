@@ -29,3 +29,44 @@
 .btn-large{
   font-size: 1.3em;
 }
+
+
+/***
+  title: Override classnames
+  section: Buttons
+  id: addClassNames
+  example:
+    <a href="" class="btn btn-small {classNames}">button</a>
+***/
+
+/***
+  title: Override classnames
+  section: Buttons
+  example:
+    <include id="addClassNames" {classNames}="btn-yellow" />
+***/
+
+.btn-yellow{
+  background-color: yellow;
+}
+
+/***
+  title: Override random attributes
+  section: Buttons
+  id: templateVars
+  example:
+    <div class="{templateVars}">
+      button {templateVars}
+    </a>
+***/
+
+/***
+  title: Override random attributes
+  section: Buttons
+  example:
+    <include id="templateVars" {templateVars}="btn-yellow" />
+***/
+
+.btn-yellow{
+  background-color: yellow;
+}

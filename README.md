@@ -101,6 +101,7 @@ body {
 
 ````
 
+
 ````js
 var StyleGuide = require('styleguidejs');
 sg = new StyleGuide();
@@ -129,6 +130,51 @@ sg.render({
     outputFile: "test/index.html"
 });
 ````
+
+
+### Hide items
+If you set `visible: false` in your YAML, it won't show up in your styleguide. This is mostly useful when working with includes.
+
+```css
+/***
+  title: My title
+  section: My Section
+  visible: false
+  example:
+    <div class="invisible">I won't show up inside your styleguide</div>
+***/
+```
+
+
+### Micro template
+When using includes you can use template strings inside your example. Use `{attribute}="attribute data"` inside your include tag. Anything in the include template matching exactly `{attribute}` will be replaced by its value.
+
+```css
+/***
+  title: Override classnames
+  section: Whatever
+  id: includeId
+  example:
+    <div class="{templateVars}">
+      {templateVars}
+    </a>
+***/
+
+/***
+  title: Override classnames
+  section: Whatever
+  example:
+    <include id="includeId" {templateVars}="template-data" />
+***/
+```
+
+will render
+
+```html
+  <div class="template-data">
+    template-data
+  </a>
+```
 
 
 ### Grunt task
