@@ -180,3 +180,6 @@ will render
 
 ### Grunt task
 See [grunt-styleguidejs](https://github.com/EightMedia/grunt-styleguidejs) for using styleguide.js inside your gruntfile.
+
+### Gulp task
+See [gulp-styleguidejs](https://github.com/aptkf/gulp-styleguidejs) for using styleguide.js as a gulp plugin.
