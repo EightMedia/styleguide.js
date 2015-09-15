@@ -186,5 +186,90 @@ exports.styleguide = {
 
         test.equal(actual, expected, 'should not run aground when no styleguide is available');
         test.done();
+    },
+
+
+    // test for files with no styleguide available at all
+    sortByDefault: function (test) {
+        test.expect(1);
+
+        var sg = new StyleGuide();
+        sg.addFile("test/fixtures/sortby/style1.css");
+        sg.addFile("test/fixtures/sortby/style2.css");
+        sg.render({
+            outputFile: "test/tmp/sortby-default.html"
+        });
+
+        var actual = readFile('test/tmp/sortby-default.html');
+        var expected = readFile('test/expected/sortby-default.html');
+
+        $ = cheerio.load(expected);
+        $('time').remove();
+        expected = $.html();
+
+        $ = cheerio.load(actual);
+        $('time').remove();
+        actual = $.html();
+
+        test.equal(actual, expected, 'should be sorted by title');
+        test.done();
+    },
+
+
+    // test for files with no styleguide available at all
+    sortByTitle: function (test) {
+        test.expect(1);
+
+        var sg = new StyleGuide();
+        sg.addFile("test/fixtures/sortby/style3.css");
+        sg.addFile("test/fixtures/sortby/style2.css");
+        sg.addFile("test/fixtures/sortby/style1.css");
+        sg.render({
+            sortBy: ['title'],
+            outputFile: "test/tmp/sortby-title.html"
+        });
+
+        var actual = readFile('test/tmp/sortby-title.html');
+        var expected = readFile('test/expected/sortby-title.html');
+
+        $ = cheerio.load(expected);
+        $('time').remove();
+        expected = $.html();
+
+        $ = cheerio.load(actual);
+        $('time').remove();
+        actual = $.html();
+
+        test.equal(actual, expected, 'should be sorted by title');
+        test.done();
+    },
+
+
+    // test for files with no styleguide available at all
+    sortByFileOrder: function (test) {
+        test.expect(1);
+
+        var sg = new StyleGuide();
+        sg.addFile("test/fixtures/sortby/style3.css");
+        sg.addFile("test/fixtures/sortby/style2.css");
+        sg.addFile("test/fixtures/sortby/style1.css");
+        sg.render({
+            sortBy: ['fileOrder'],
+            outputFile: "test/tmp/sortby-file.html"
+        });
+
+        var actual = readFile('test/tmp/sortby-file.html');
+        var expected = readFile('test/expected/sortby-file.html');
+
+        $ = cheerio.load(expected);
+        $('time').remove();
+        expected = $.html();
+
+        $ = cheerio.load(actual);
+        $('time').remove();
+        actual = $.html();
+
+        test.equal(actual, expected, 'should be sorted by file order');
+        test.done();
     }
 };
