@@ -131,6 +131,17 @@ sg.render({
 });
 ````
 
+### Custom sorting
+You can change the order of appearance with the `sortBy` option. Any key from the Yaml data can be used, like `title` or `section`. If you want to keep the order as written in your CSS files, use `fileOrder`.
+
+````js
+// ...
+sg.render({
+    sortBy: ['section', 'title'], // default
+    // ...
+});
+````
+
 
 ### Hide items
 If you set `visible: false` in your YAML, it won't show up in your styleguide. This is mostly useful when working with includes.
@@ -144,7 +155,6 @@ If you set `visible: false` in your YAML, it won't show up in your styleguide. T
     <div class="invisible">I won't show up inside your styleguide</div>
 ***/
 ```
-
 
 ### Micro template
 When using includes you can use template strings inside your example. Use `{attribute}="attribute data"` inside your include tag. Anything in the include template matching exactly `{attribute}` will be replaced by its value.
