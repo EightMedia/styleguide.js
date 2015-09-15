@@ -127,6 +127,9 @@ sg.render({
     templateCss: "styleguide/style.css",
     templateJs: "styleguide/script.js",
     template: "styleguide/template.jade",
+    beautifyHtml: {
+      preserve_newlines: false // see https://www.npmjs.com/package/js-beautify
+    },
     outputFile: "test/index.html"
 });
 ````

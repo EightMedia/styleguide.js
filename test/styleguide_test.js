@@ -189,7 +189,34 @@ exports.styleguide = {
     },
 
 
-    // test for files with no styleguide available at all
+    beautifyHtml: function (test) {
+        test.expect(1);
+
+        var sg = new StyleGuide();
+        sg.addFile("test/fixtures/default/style.css");
+        sg.render({
+            outputFile: "test/tmp/beautify-html.html",
+            beautifyHtml: {
+                indent_char: '–'
+            },
+        });
+
+        var actual = readFile('test/tmp/beautify-html.html');
+        var expected = readFile('test/expected/beautify-html.html');
+
+        $ = cheerio.load(expected);
+        $('time').remove();
+        expected = $.html();
+
+        $ = cheerio.load(actual);
+        $('time').remove();
+        actual = $.html();
+
+        test.equal(actual, expected, 'should indent html');
+        test.done();
+
+    },
+
     sortByDefault: function (test) {
         test.expect(1);
 
@@ -202,6 +229,7 @@ exports.styleguide = {
 
         var actual = readFile('test/tmp/sortby-default.html');
         var expected = readFile('test/expected/sortby-default.html');
+
 
         $ = cheerio.load(expected);
         $('time').remove();
